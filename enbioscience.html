@@ -1,0 +1,404 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>리본셀 × Cafe24 — 쌓인 신뢰를 '성과'로 바꾸는 더마 D2C 그로스 제안서</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{
+  --black:#2e1a24;            /* 리본셀 딥 플럼/와인 (히어로·헤더 톤) */
+  --ink:#241820;
+  --white:#ffffff;
+  --offwhite:#faf3f6;         /* 소프트 로즈-화이트 */
+  --offwhite2:#f2dfe7;
+  --paper:#fffafc;
+  --line:#f0dfe6;
+  --muted:#6f5560;
+  --soft:#b79aa6;
+  --accent:#d15b7a;          /* 리본셀 시그니처 로즈 */
+  --accent-soft:#f0a7bb;     /* 다크 배경용 라이트 로즈 */
+  --accent-deep:#b03e60;     /* 라이트 배경 텍스트용 딥 로즈 (AA 대비) */
+  --accent-mid:#e07f97;
+  --accent-pale:#fbe6ee;
+  --accent-xpale:#fdf3f7;
+  --gold:#c39a6b;            /* 로즈골드 보조 액센트 */
+  --good:#2f8f5b;
+  --warn:#c6962f;
+  --weak:#c2683f;
+  --radius:4px;
+  --maxw:1120px;
+  --shadow:0 1px 0 rgba(0,0,0,.04);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',sans-serif;
+  color:var(--ink);background:var(--paper);line-height:1.7;letter-spacing:-.01em;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.section{padding:88px 0;border-bottom:1px solid var(--line)}
+.section:last-child{border-bottom:none}
+.eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;margin-bottom:18px}
+.section h2{font-size:clamp(26px,3.4vw,40px);font-weight:800;line-height:1.18;letter-spacing:-.03em;margin-bottom:14px}
+.section .lead{font-size:clamp(15px,1.6vw,18px);color:var(--muted);max-width:860px;margin-bottom:44px}
+.section h3{font-size:20px;font-weight:700;margin:0 0 14px}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,250,252,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brandmark{font-weight:800;letter-spacing:.1em;font-size:15px}
+.brandmark span{color:var(--accent-deep)}
+.navlinks{display:flex;gap:26px;font-size:13.5px;color:var(--muted);font-weight:500}
+.navlinks a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;padding:11px 20px;border-radius:var(--radius);transition:.2s;cursor:pointer}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-deep);color:#fff}
+.btn-ghost{border:1px solid var(--ink);color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+.btn-lg{padding:15px 30px;font-size:15.5px}
+@media(max-width:880px){.navlinks{display:none}}
+
+/* print bar */
+.printbar{position:fixed;right:18px;bottom:18px;z-index:60}
+.printbar button{cursor:pointer;border:none;background:var(--accent-deep);color:#fff;font-family:inherit;font-weight:700;font-size:13px;padding:12px 18px;border-radius:40px;box-shadow:0 6px 24px rgba(176,62,96,.28)}
+.printbar button:hover{background:var(--black)}
+
+/* Hero */
+.hero{background:var(--black);color:#fff;padding:120px 0 108px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background:
+  radial-gradient(680px 380px at 82% 10%,rgba(209,91,122,.55),transparent 60%),
+  radial-gradient(520px 520px at 6% 96%,rgba(195,154,107,.16),transparent 55%);}
+.hero .wrap{position:relative}
+.hero .kick{font-size:12.5px;letter-spacing:.3em;color:var(--accent-soft);text-transform:uppercase;font-weight:700;margin-bottom:26px}
+.hero h1{font-size:clamp(31px,5vw,55px);font-weight:800;line-height:1.14;letter-spacing:-.035em;max-width:1000px}
+.hero h1 em{font-style:normal;color:var(--accent-soft)}
+.hero .sub{font-size:clamp(16px,1.9vw,20px);color:#f3e4ea;max-width:840px;margin:28px 0 40px;line-height:1.6}
+.hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
+.hero .btn-ghost{border-color:rgba(255,255,255,.5);color:#fff}
+.hero .btn-ghost:hover{background:#fff;color:var(--black)}
+.hero .stats{display:flex;gap:42px;margin-top:62px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.15);padding-top:34px}
+.hero .stat b{display:block;font-size:clamp(24px,3.2vw,34px);font-weight:800;letter-spacing:-.02em;color:var(--accent-soft)}
+.hero .stat span{font-size:12.5px;color:#d7c2cb}
+
+/* grids */
+.grid{display:grid;gap:22px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:880px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+.card h4{font-size:16px;font-weight:700;margin-bottom:8px}
+.card p{font-size:14px;color:var(--muted)}
+.card .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);background:var(--accent-pale);padding:4px 9px;border-radius:20px;margin-bottom:12px}
+
+/* KPI */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:880px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.kpi .v{font-size:29px;font-weight:800;letter-spacing:-.03em;color:var(--accent-deep)}
+.kpi .l{font-size:13px;color:var(--muted);margin-top:4px}
+.kpi .t{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;margin-bottom:14px}
+
+/* bars */
+.bar{margin-bottom:18px}
+.bar .top{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;margin-bottom:7px}
+.bar .top b{font-weight:700}
+.bar .top .num{font-weight:800;font-variant-numeric:tabular-nums}
+.track{height:9px;background:var(--offwhite2);border-radius:20px;overflow:hidden}
+.fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-mid));border-radius:20px}
+.fill.weak{background:linear-gradient(90deg,#c2683f,#e0a07f)}
+.fill.mid{background:linear-gradient(90deg,var(--gold),#e0c49b)}
+.fill.strong{background:linear-gradient(90deg,var(--accent-deep),var(--accent))}
+.note{font-size:12.5px;color:var(--muted);margin-top:5px}
+
+/* axis type */
+.axisbox{background:var(--accent-xpale);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+.pill{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:700;padding:7px 14px;border-radius:30px;border:1px solid var(--accent-pale);background:#fff;color:var(--ink)}
+.pill .dot{width:9px;height:9px;border-radius:50%}
+.dot.on{background:var(--accent)}
+.dot.off{background:var(--offwhite2);border:1px solid var(--soft)}
+
+/* table */
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{text-align:left;padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);font-weight:700;background:var(--accent-xpale)}
+td b{font-weight:700}
+.mut{color:var(--muted)}
+
+/* list */
+.checks{list-style:none;display:grid;gap:12px}
+.checks li{display:flex;gap:12px;font-size:14.5px}
+.checks li:before{content:"→";color:var(--accent-deep);font-weight:800;flex:none}
+
+/* map row */
+.maprow{display:grid;grid-template-columns:1fr auto 1.1fr;gap:18px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
+.maprow:last-child{border-bottom:none}
+.maprow .arrow{color:var(--accent);font-weight:800;font-size:20px}
+.maprow .gap{font-weight:700;font-size:15px}
+.maprow .sol{font-size:14px;color:var(--muted)}
+.maprow .sol b{color:var(--ink)}
+@media(max-width:720px){.maprow{grid-template-columns:1fr}.maprow .arrow{display:none}}
+
+/* timeline */
+.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+@media(max-width:880px){.tl{grid-template-columns:1fr}}
+.tl .ph{padding:24px 22px;border-left:3px solid var(--accent-pale);position:relative}
+.tl .ph:first-child{border-left-color:var(--accent)}
+.tl .ph .n{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);font-weight:700}
+.tl .ph h4{font-size:16px;margin:8px 0 6px}
+.tl .ph p{font-size:13px;color:var(--muted)}
+.tl .ph .wk{font-size:12px;color:var(--gold);font-weight:700;margin-top:10px}
+
+/* quick win */
+.qw{display:flex;gap:16px;align-items:flex-start;padding:18px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius)}
+.qw .rank{flex:none;width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px}
+.qw h4{font-size:15.5px;margin-bottom:4px}
+.qw p{font-size:13.5px;color:var(--muted)}
+
+/* CTA */
+.cta{background:var(--black);color:#fff;text-align:center;padding:96px 0}
+.cta:before{content:"";position:absolute}
+.cta h2{font-size:clamp(26px,3.6vw,42px);font-weight:800;letter-spacing:-.03em;color:#fff;margin-bottom:16px}
+.cta p{color:#f0dbe3;font-size:17px;max-width:640px;margin:0 auto 34px}
+.cta .btn-primary{background:var(--accent);font-size:16px;padding:16px 34px}
+.cta .btn-primary:hover{background:#fff;color:var(--accent-deep)}
+.contactcard{display:inline-flex;flex-wrap:wrap;gap:28px;justify-content:center;margin-top:40px;padding:22px 34px;border:1px solid rgba(255,255,255,.2);border-radius:var(--radius);background:rgba(255,255,255,.05)}
+.contactcard .ci{text-align:left}
+.contactcard .ci .k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-soft);font-weight:700}
+.contactcard .ci .val{font-size:15px;font-weight:600;margin-top:3px}
+
+footer{background:var(--ink);color:#c9b3bc;font-size:12.5px;padding:34px 0}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{color:var(--accent-soft)}
+.disc{max-width:640px;line-height:1.6}
+
+.badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;padding:4px 10px;border-radius:20px;background:var(--accent-pale);color:var(--accent-deep);margin-bottom:14px}
+.quote{font-size:clamp(19px,2.4vw,26px);font-weight:700;line-height:1.5;letter-spacing:-.02em;color:var(--ink)}
+.quote em{font-style:normal;color:var(--accent-deep)}
+.src{font-size:11.5px;color:var(--soft);margin-top:8px}
+</style>
+</head>
+<body>
+
+<div class="printbar"><button onclick="window.print()">📄 PDF로 저장</button></div>
+
+<!-- NAV -->
+<nav class="nav"><div class="wrap">
+  <div class="brandmark">REBONCEL <span>× Cafe24</span></div>
+  <div class="navlinks">
+    <a href="#market">시장·트렌드</a>
+    <a href="#gap">경쟁 갭</a>
+    <a href="#diagnosis">브랜드 진단</a>
+    <a href="#lever">핵심 전략</a>
+    <a href="#roadmap">실행 로드맵</a>
+  </div>
+  <a class="btn btn-primary" href="mailto:jekim@cafe24corp.com?subject=%5B%EB%A6%AC%EB%B3%B8%EC%85%80%5D%20%EC%B9%B4%ED%8E%9824%20%EA%B7%B8%EB%A1%9C%EC%8A%A4%20%EC%83%81%EB%8B%B4%20%EC%9A%94%EC%B2%AD&body=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94%2C%20%EB%A6%AC%EB%B3%B8%EC%85%80%20%EB%A7%88%EC%BC%80%ED%8C%85%20%EB%8B%B4%EB%8B%B9%EC%9E%90%EC%9E%85%EB%8B%88%EB%8B%A4.%20%EC%9E%90%EC%82%AC%EB%AA%B0%20%EC%84%B1%EA%B3%BC%20%EA%B3%A0%EB%8F%84%ED%99%94%EC%97%90%20%EB%8C%80%ED%95%B4%20%EC%83%81%EB%8B%B4%EC%9D%84%20%EC%9A%94%EC%B2%AD%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.">전담 매니저 상담</a>
+</div></nav>
+
+<!-- HERO -->
+<header class="hero"><div class="wrap">
+  <div class="kick">Cafe24 Enterprise · 기존 고객 그로스 제안 · 마케팅 담당자용</div>
+  <h1>이미 쌓인 신뢰. 지금부터는 <em>'성과'</em>로 바꿀 차례입니다.</h1>
+  <p class="sub">리본셀은 '피부과학의 시작'이라는 분명한 약속과 PDRN·펩타이드·식물줄기세포라는 검증 성분, 그리고 무신사 4.6점·205건 같은 실사용 신뢰를 이미 갖추고 있습니다. 문제는 이 자산이 여러 채널에 흩어져 <b>성과 데이터로 축적되지 않는다</b>는 점입니다. 흩어진 신뢰를 자사몰 중심의 전환·리텐션·재구매 성과로 전환하는 그로스 설계를 제안합니다.</p>
+  <div class="ctas">
+    <a class="btn btn-primary btn-lg" href="mailto:jekim@cafe24corp.com?subject=%5B%EB%A6%AC%EB%B3%B8%EC%85%80%5D%20%EC%B9%B4%ED%8E%9824%20%EA%B7%B8%EB%A1%9C%EC%8A%A4%20%EC%83%81%EB%8B%B4%20%EC%9A%94%EC%B2%AD&body=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94%2C%20%EB%A6%AC%EB%B3%B8%EC%85%80%20%EB%A7%88%EC%BC%80%ED%8C%85%20%EB%8B%B4%EB%8B%B9%EC%9E%90%EC%9E%85%EB%8B%88%EB%8B%A4.%20%EC%9E%90%EC%82%AC%EB%AA%B0%20%EC%84%B1%EA%B3%BC%20%EA%B3%A0%EB%8F%84%ED%99%94%EC%97%90%20%EB%8C%80%ED%95%B4%20%EC%83%81%EB%8B%B4%EC%9D%84%20%EC%9A%94%EC%B2%AD%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.">전담 매니저에게 상담 요청 →</a>
+    <a class="btn btn-ghost btn-lg" href="#diagnosis">브랜드 진단부터 보기</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>6.1조 원</b><span>2026E 국내 더마코스메틱 시장 (2025년 5.2조)</span></div>
+    <div class="stat"><b>+695%</b><span>PDRN 성분 검색량 전년比 급등 — 리본셀 보유 라인</span></div>
+    <div class="stat"><b>4.6 / 205</b><span>대표 롱셀러 무신사 평점·후기(에이씨 겔)</span></div>
+    <div class="stat"><b>기능형</b><span>3축 진단 결과 — 신뢰·트렌드 강, '각인'이 과제</span></div>
+  </div>
+</div></header>
+
+<!-- EXECUTIVE SUMMARY -->
+<section class="section" id="summary"><div class="wrap">
+  <div class="eyebrow">Executive Summary</div>
+  <h2>11개 브랜딩 프레임워크가 한 문장으로 수렴합니다</h2>
+  <p class="lead">시장·경쟁·디자인·트렌드·브랜드 자산·전략 함수까지 분석한 결과, 리본셀의 성장 병목은 '제품력'이나 '트렌드'가 아니라 <b>흩어진 신뢰 자산이 자사몰 성과 데이터로 축적되지 않는 구조</b>에 있습니다. 마케팅 성과 관점에서 가장 빠른 레버는 여기에 있습니다.</p>
+  <div class="kpis">
+    <div class="kpi"><div class="t">3축 진단</div><div class="v">62·52·72</div><div class="l">기본 / 개성 / 트렌드 → <b>기능형</b></div></div>
+    <div class="kpi"><div class="t">실행가능성 ESI</div><div class="v">62.5</div><div class="l">성장 안정형 (0–100 가중합)</div></div>
+    <div class="kpi"><div class="t">트렌드 레디니스 TRS</div><div class="v">74</div><div class="l">PDRN·재생 홈케어 정중앙</div></div>
+    <div class="kpi"><div class="t">Pull 마케팅 MAGNET</div><div class="v">56 · C</div><div class="l">리텐션·전도 지표가 성장 여지</div></div>
+  </div>
+  <div style="margin-top:40px" class="axisbox">
+    <div class="badge">단일 핵심 레버</div>
+    <p class="quote">무신사·후기·유튜브에 흩어진 <em>더마 신뢰 자산</em>을, 자사몰 중심의 <em>전환·리텐션·재구매 성과 데이터</em>로 전환한다.</p>
+    <p class="src">※ 본 요약의 정량 점수는 공개 정보·진단 프레임워크 기반 정성 추정치를 포함합니다. 실제 매출·전환·리텐션 지표는 미팅 시 자사몰 데이터로 정밀 검증합니다.</p>
+  </div>
+</div></section>
+
+<!-- MARKET & TREND -->
+<section class="section" id="market"><div class="wrap">
+  <div class="eyebrow">Market & Trend</div>
+  <h2>시장은 리본셀이 이미 잘하는 방향으로 커지고 있습니다</h2>
+  <p class="lead">더마코스메틱은 성분·근거 중심 소비로 재편되며 빠르게 성장 중입니다. 리본셀이 보유한 라인(PDRN·펩타이드·비타민C)이 지금 시장이 가장 원하는 성분과 정확히 겹칩니다 — 즉, 성과를 낼 토양은 이미 마련돼 있습니다.</p>
+  <div class="grid g3">
+    <div class="card"><span class="tag">시장 규모</span><h4>5.2조 → 6.1조 원</h4><p>국내 더마코스메틱 시장(2025→2026E). 2020년 약 1조 원에서 5년 새 5배 이상 성장. '바르는 스킨부스터' 등 고기능 홈케어가 성장 견인.</p></div>
+    <div class="card"><span class="tag">성분 트렌드</span><h4>PDRN +695%</h4><p>2026 뷰티 성분 검색량 전년比: PDRN +695%, 레티날 +500%, 레티놀 +240%. 리본셀 'PDRN 리바이탈 부스터 앰플'이 이 흐름의 정중앙.</p></div>
+    <div class="card"><span class="tag">소비 변화</span><h4>신뢰·근거 소비</h4><p>"약사·피부과가 추천했다"는 신뢰가 구매를 좌우. 병원전문화장품 노하우를 표방하는 리본셀의 서사와 정합.</p></div>
+  </div>
+  <div style="margin-top:40px">
+    <h3>TOP 3 트렌드 × 리본셀 적합도 (Jobs-to-be-Done)</h3>
+    <div class="bar"><div class="top"><b>① PDRN·재생 스킨부스터의 홈케어化</b><span class="num">92</span></div><div class="track"><div class="fill strong" style="width:92%"></div></div><div class="note">"시술 대신 집에서" — 보유한 PDRN 앰플로 즉시 대응 가능한 최적 적합.</div></div>
+    <div class="bar"><div class="top"><b>② 성분 투명성·근거주의</b><span class="num">80</span></div><div class="track"><div class="fill strong" style="width:80%"></div></div><div class="note">"믿을 성분인지 증명해달라" — 병원화장품 노하우 + 후기가 근거 자산.</div></div>
+    <div class="bar"><div class="top"><b>③ 가성비 고기능(합리적 프리미엄)</b><span class="num">76</span></div><div class="track"><div class="fill" style="width:76%"></div></div><div class="note">"프리미엄 성분을 부담 없이" — 중저가(15,000~50,000원대) 포지션이 유리.</div></div>
+  </div>
+</div></section>
+
+<!-- COMPETITOR GAP -->
+<section class="section" id="gap" style="background:var(--offwhite)"><div class="wrap">
+  <div class="eyebrow">Competitive Landscape</div>
+  <h2>경쟁사는 '인지도'로 앞서고, 리본셀은 '기민함'으로 이깁니다</h2>
+  <p class="lead">병원화장품 시장은 대형 브랜드가 인지도·채널을 선점하고 있습니다. 각 경쟁사의 강점은 인정하되, 리본셀이 이길 수 있는 지점은 <b>트렌드 성분에 대한 빠른 대응과 자사몰 기반의 직접 관계</b>입니다.</p>
+  <table>
+    <thead><tr><th>브랜드</th><th>포지션 · 강점</th><th>리본셀 관점의 갭</th></tr></thead>
+    <tbody>
+      <tr><td><b>라로슈포제</b></td><td>병원화장품 브랜드평판 1위. 글로벌 피부과 처방 신뢰, 온천수·시카 성분 자산, 병의원 채널 장악.</td><td class="mut">글로벌 대량 브랜드로 <b>한국형 고민·트렌드 성분(PDRN) 대응 속도</b>는 상대적으로 느림.</td></tr>
+      <tr><td><b>CNP(씨엔피)</b></td><td>피부과 처방 헤리티지, 프로폴리스 앰플 등 대중 스테디셀러, 대기업 유통·마케팅 파워.</td><td class="mut">대기업 구조상 <b>마이크로 타깃·신성분 민첩성</b>은 낮음. 리본셀이 파고들 틈.</td></tr>
+      <tr><td><b>셀바이셀</b></td><td>민감성 메디컬 코스메틱, 펩타이드·스킨부스터 앰플 라인업, 에스테틱 전문 채널 신뢰.</td><td class="mut">대중 온라인 프레즌스가 제한적 — <b>D2C·리뷰 자산화</b>에서 리본셀이 앞설 여지.</td></tr>
+      <tr><td><b>에스테덤</b></td><td>40년 프랑스 프리미엄 에스테틱, 특허 '셀룰러 워터', 백화점 파워 브랜드.</td><td class="mut">수입 프리미엄가로 <b>합리적 홈케어 대중성</b>은 약. 가격 포지션이 상반.</td></tr>
+      <tr><td><b>이지함</b></td><td>피부과(이지함피부과) 헤리티지 병원화장품, 임상 신뢰.</td><td class="mut">젊은층 <b>디지털 접점·콘텐츠 커머스</b>가 약. 리본셀의 온라인 기민함이 대비되는 지점.</td></tr>
+    </tbody>
+  </table>
+  <p class="src" style="margin-top:16px">출처: 병원화장품 브랜드평판(의학신문·바이오타임즈), 각 브랜드 공식몰·마리끌레르 K-더마 정리, 무신사 제품 페이지. 경쟁사 강점은 객관적으로 인정하며, 특정 브랜드를 비방하지 않습니다.</p>
+</div></section>
+
+<!-- DIAGNOSIS -->
+<section class="section" id="diagnosis"><div class="wrap">
+  <div class="eyebrow">Brand Diagnosis · 3-Axis Engine</div>
+  <h2>3축 진단: 리본셀은 '기능형' — 신뢰와 트렌드는 강하나 '각인'이 과제</h2>
+  <p class="lead">기본(신뢰의 토대)과 트렌드(성장 가속기)는 60점을 넘어 강점이지만, 개성(각인 메시지) 축이 상대적으로 약합니다. 성분 스펙 경쟁이 심한 더마 시장에서, 리본셀만의 각인 메시지를 세우는 것이 다음 성장의 열쇠입니다.</p>
+  <div class="grid g2" style="align-items:start">
+    <div>
+      <div class="bar"><div class="top"><b>기본 (신뢰의 토대)</b><span class="num">62 / 100</span></div><div class="track"><div class="fill strong" style="width:62%"></div></div><div class="note">지각품질·명확성(고민별 큐레이션) 강. 인지도·SNS 프레즌스는 보완 필요.</div></div>
+      <div class="bar"><div class="top"><b>개성 (각인 메시지)</b><span class="num">52 / 100</span></div><div class="track"><div class="fill weak" style="width:52%"></div></div><div class="note">성분 나열은 있으나 '리본셀=이것' 하는 독특성 자산·감정 연결이 약함. <b>최우선 과제.</b></div></div>
+      <div class="bar"><div class="top"><b>트렌드 (성장 가속기)</b><span class="num">72 / 100</span></div><div class="track"><div class="fill strong" style="width:72%"></div></div><div class="note">PDRN·펩타이드 라인 = 메가트렌드 정중앙. 시장 성장성·Job 해결력 우수.</div></div>
+    </div>
+    <div class="axisbox">
+      <h3 style="margin-bottom:18px">유형 판정</h3>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px">
+        <span class="pill"><span class="dot on"></span>기본 强</span>
+        <span class="pill"><span class="dot off"></span>개성 弱</span>
+        <span class="pill"><span class="dot on"></span>트렌드 强</span>
+      </div>
+      <p style="font-size:20px;font-weight:800;color:var(--accent-deep);margin-bottom:8px">기능형 브랜드</p>
+      <p style="font-size:14px;color:var(--muted)">검증된 기능과 시장 트렌드를 다 갖췄지만, "왜 하필 리본셀인가"에 대한 감정적·상징적 각인이 부족한 유형. 처방은 명확합니다 — <b>제품 나열을 넘어 브랜드 에센스(각인 메시지)를 세우고, 그것을 자사몰 경험 전체에 일관되게 심는 것.</b></p>
+    </div>
+  </div>
+
+  <div style="margin-top:52px">
+    <h3>보조 진단 스코어카드</h3>
+    <div class="grid g4" style="margin-top:18px">
+      <div class="kpi"><div class="t">콘셉트 7C</div><div class="v">B−</div><div class="l">고객지향·결합(성분×홈케어) 강 / 창의성·보완성 보완</div></div>
+      <div class="kpi"><div class="t">CX 경험 7E</div><div class="v">B / C</div><div class="l">심미성 양호 / 브랜드 서사·경험(Episode) 약</div></div>
+      <div class="kpi"><div class="t">브랜드 파워</div><div class="v">기본템</div><div class="l">수렴도 중 × 강도 중 — 각인으로 '강한 브랜드'化 필요</div></div>
+      <div class="kpi"><div class="t">디자인 시스템</div><div class="v">18 / 25</div><div class="l">라이트+로즈 톤 일관 / 비주얼 자산화 여지</div></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- SUCCESS EQUATION / ROLE MODEL -->
+<section class="section" id="lever" style="background:var(--offwhite)"><div class="wrap">
+  <div class="eyebrow">Success Equation · Role Models</div>
+  <h2>성공 함수: 검증 성분을 '히어로 단품 + 리뷰 신뢰'로 응축한 브랜드가 이겼습니다</h2>
+  <p class="lead">전략자산 6면체로 84개 성공 기업 DB와 매칭한 결과, 리본셀과 가장 가까운 성공 경로는 <b>단일 검증 성분을 히어로 단품으로 응축하고, 리뷰·UGC로 신뢰를 증폭하며, 자사몰 데이터로 재구매를 끌어올린</b> K-더마/성분 브랜드들입니다.</p>
+  <div class="grid g2" style="align-items:start">
+    <div class="card">
+      <h4>전략자산 6면체 (0–100)</h4>
+      <div style="margin-top:16px">
+        <div class="bar"><div class="top"><b>상품력</b><span class="num">66</span></div><div class="track"><div class="fill strong" style="width:66%"></div></div></div>
+        <div class="bar"><div class="top"><b>디지털 민첩성</b><span class="num">58</span></div><div class="track"><div class="fill" style="width:58%"></div></div></div>
+        <div class="bar"><div class="top"><b>성장 엔진</b><span class="num">55</span></div><div class="track"><div class="fill" style="width:55%"></div></div></div>
+        <div class="bar"><div class="top"><b>브랜드 자산</b><span class="num">52</span></div><div class="track"><div class="fill mid" style="width:52%"></div></div></div>
+        <div class="bar"><div class="top"><b>채널 장악력</b><span class="num">50</span></div><div class="track"><div class="fill mid" style="width:50%"></div></div></div>
+        <div class="bar"><div class="top"><b>글로벌 확장력</b><span class="num">30</span></div><div class="track"><div class="fill weak" style="width:30%"></div></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <h4>성공 함수 y = f(x)</h4>
+      <ul class="checks" style="margin-top:14px">
+        <li><b>x₁ 차별화 무기</b> — PDRN 등 검증 성분을 '히어로 단품'으로 응축</li>
+        <li><b>x₂ 증폭기</b> — 무신사 4.6점·205건 같은 리뷰·UGC를 자사몰로 흡수·증폭</li>
+        <li><b>x₃ 신뢰 장치</b> — 병원화장품 노하우·근거를 브랜드 에센스로 각인</li>
+        <li><b>x₄ 채널 레버리지</b> — 자사몰 CRM으로 재구매·정기구매 데이터 축적</li>
+        <li><b>x₅ 카테고리 지위</b> — 'PDRN 홈케어' 카테고리 선점 언어 확보</li>
+      </ul>
+      <p class="note" style="margin-top:14px">근접 롤모델(6면체 유클리드 매칭): 성분 스토리+리뷰형 K-더마 브랜드군. 브랜드명은 미팅 시 벤치마크로 공유합니다.</p>
+    </div>
+  </div>
+  <div style="margin-top:34px" class="axisbox">
+    <div class="badge">브랜드 에센스 (Personality Builder)</div>
+    <p class="quote">"리본셀은 <em>병원의 피부과학을 매일의 홈케어로</em> 옮겨, <em>성분으로 증명하는</em> 더마 루틴이다."</p>
+    <p class="src">각인 키워드 3: <b>피부과학 · 검증 성분 · 매일의 루틴</b> — 자사몰 카피·상세페이지·CRM 메시지에 일관 적용 대상.</p>
+  </div>
+</div></section>
+
+<!-- CAFE24 SOLUTION MAPPING -->
+<section class="section" id="solution"><div class="wrap">
+  <div class="eyebrow">Growth Prescription · 기존 인프라 위 추가 가동</div>
+  <h2>진단된 갭을 이미 쓰고 계신 카페24 위에서 바로 해소합니다</h2>
+  <p class="lead">리본셀은 이미 카페24 자사몰을 운영 중입니다(Hosting by Cafe24 확인). 새로 '도입'하는 것이 아니라, 보유한 인프라 위에서 아직 켜지 않은 성과 기능을 <b>추가 가동</b>하는 것이 가장 빠르고 안전한 길입니다. 진단 약점과 솔루션을 1:1로 매핑했습니다.</p>
+  <div style="margin-top:10px">
+    <div class="maprow"><div><span class="tag" style="display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);background:var(--accent-pale);padding:4px 9px;border-radius:20px">약점</span><div class="gap" style="margin-top:8px">신뢰 자산(리뷰)이 외부 채널에 흩어짐</div></div><div class="arrow">→</div><div class="sol"><b>포토리뷰·리뷰 위젯 고도화</b> · 성분·효과 후기를 자사몰 상세페이지 근거로 자산화하여 전환율 강화</div></div>
+    <div class="maprow"><div><span class="tag" style="display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);background:var(--accent-pale);padding:4px 9px;border-radius:20px">약점</span><div class="gap" style="margin-top:8px">재구매·리텐션이 데이터로 축적되지 않음</div></div><div class="arrow">→</div><div class="sol"><b>CRM 자동화 · 정기배송</b> · 앰플/크림 소진 주기 기반 재구매 리마인드와 정기구매로 LTV 확대</div></div>
+    <div class="maprow"><div><span class="tag" style="display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);background:var(--accent-pale);padding:4px 9px;border-radius:20px">약점</span><div class="gap" style="margin-top:8px">'각인 메시지(개성)' 축이 약함</div></div><div class="arrow">→</div><div class="sol"><b>브랜드 에센스 기반 상세·기획전</b> · '피부과학 → 매일의 루틴' 서사를 디자인·카피로 일관 적용</div></div>
+    <div class="maprow"><div><span class="tag" style="display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);background:var(--accent-pale);padding:4px 9px;border-radius:20px">약점</span><div class="gap" style="margin-top:8px">성과 트래킹·채널 데이터 단절</div></div><div class="arrow">→</div><div class="sol"><b>마케팅 성과 분석·광고 연동</b> · 유입·전환을 한 곳에서 트래킹, 채널별 성과로 예산 최적화(마케팅 담당 최우선)</div></div>
+    <div class="maprow"><div><span class="tag" style="display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);background:var(--accent-pale);padding:4px 9px;border-radius:20px">기회</span><div class="gap" style="margin-top:8px">PDRN 트렌드 급등 + 유튜브 채널 보유</div></div><div class="arrow">→</div><div class="sol"><b>콘텐츠 커머스 연동</b> · 유튜브·SNS 콘텐츠를 자사몰 구매 동선과 연결해 트렌드 유입을 매출로 전환</div></div>
+  </div>
+</div></section>
+
+<!-- ROADMAP + QUICK WIN -->
+<section class="section" id="roadmap" style="background:var(--offwhite)"><div class="wrap">
+  <div class="eyebrow">Execution Matrix · Roadmap</div>
+  <h2>성과로 이어지는 4단계 실행 로드맵</h2>
+  <p class="lead">한 번에 다 바꾸지 않습니다. 마케팅 성과가 가장 빨리 눈에 보이는 순서로, 리스크 없이 단계적으로 가동합니다.</p>
+  <div class="tl" style="margin-bottom:44px">
+    <div class="ph"><div class="n">Phase 1</div><h4>신뢰 자산 흡수</h4><p>외부 리뷰·후기를 자사몰 근거로 자산화, 포토리뷰 위젯·성분 근거 상세 정비.</p><div class="wk">~1개월</div></div>
+    <div class="ph"><div class="n">Phase 2</div><h4>각인 메시지 심기</h4><p>브랜드 에센스('피부과학→매일의 루틴')를 히어로 단품 랜딩·기획전에 일관 적용.</p><div class="wk">1~2개월</div></div>
+    <div class="ph"><div class="n">Phase 3</div><h4>리텐션 가동</h4><p>CRM 자동화·정기배송·멤버십으로 재구매/LTV 데이터 축적 및 성과 트래킹.</p><div class="wk">2~3개월</div></div>
+    <div class="ph"><div class="n">Phase 4</div><h4>채널 확장</h4><p>콘텐츠 커머스·광고 성과 연동으로 트렌드 유입을 매출로. 이후 글로벌 검토.</p><div class="wk">3~5개월</div></div>
+  </div>
+  <h3>Quick Win TOP 5 — 지금 바로 켤 수 있는 것</h3>
+  <div class="grid g2" style="margin-top:18px">
+    <div class="qw"><div class="rank">1</div><div><h4>PDRN 히어로 단품 랜딩 + 리뷰 집중</h4><p>급등하는 PDRN 수요를 대표 앰플 단독 페이지로 흡수, 후기를 전환 근거로 배치.</p></div></div>
+    <div class="qw"><div class="rank">2</div><div><h4>재구매 CRM 자동화</h4><p>앰플·크림 소진 주기 기반 리마인드·정기구매로 기존 고객 LTV 확대.</p></div></div>
+    <div class="qw"><div class="rank">3</div><div><h4>포토리뷰·성분 근거 UGC</h4><p>실사용 후기를 상세페이지 근거로 자산화해 신뢰 강도(브랜드 파워) 상승.</p></div></div>
+    <div class="qw"><div class="rank">4</div><div><h4>멤버십·등급 리텐션</h4><p>단발 할인 의존을 줄이고 등급 혜택으로 재방문·정가 판매비율 개선.</p></div></div>
+    <div class="qw"><div class="rank">5</div><div><h4>콘텐츠 커머스 연동</h4><p>보유한 유튜브 채널을 자사몰 구매 동선과 연결해 트렌드 유입을 매출로.</p></div></div>
+  </div>
+</div></section>
+
+<!-- CTA -->
+<section class="cta" style="position:relative;overflow:hidden"><div class="wrap" style="position:relative">
+  <div class="eyebrow" style="color:var(--accent-soft)">Next Step</div>
+  <h2>이미 갖춘 신뢰, 성과로 바꾸는 30분</h2>
+  <p>리본셀 자사몰 데이터를 함께 열어보며, 위 Quick Win 중 어디서 가장 빠른 성과가 나올지 전담 매니저가 진단해 드립니다. 지금 바로 상담을 요청하세요.</p>
+  <a class="btn btn-primary btn-lg" href="mailto:jekim@cafe24corp.com?subject=%5B%EB%A6%AC%EB%B3%B8%EC%85%80%5D%20%EC%B9%B4%ED%8E%9824%20%EC%97%94%ED%84%B0%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88%20%EA%B7%B8%EB%A1%9C%EC%8A%A4%20%EC%83%81%EB%8B%B4%20%EC%9A%94%EC%B2%AD&body=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94%2C%20%EB%A6%AC%EB%B3%B8%EC%85%80%20%EB%A7%88%EC%BC%80%ED%8C%85%20%EB%8B%B4%EB%8B%B9%EC%9E%90%EC%9E%85%EB%8B%88%EB%8B%A4.%20%EC%9E%90%EC%82%AC%EB%AA%B0%20%EC%84%B1%EA%B3%BC%20%EA%B3%A0%EB%8F%84%ED%99%94%C2%B7%EB%A6%AC%ED%85%90%EC%85%98%20%EC%83%81%EB%8B%B4%EC%9D%84%20%EC%9A%94%EC%B2%AD%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.">전담 매니저에게 상담 요청하기 →</a>
+  <div class="contactcard">
+    <div class="ci"><div class="k">담당 컨설턴트</div><div class="val">김정은</div></div>
+    <div class="ci"><div class="k">Email</div><div class="val"><a href="mailto:jekim@cafe24corp.com" style="color:#fff">jekim@cafe24corp.com</a></div></div>
+    <div class="ci"><div class="k">Tel</div><div class="val"><a href="tel:0262967838" style="color:#fff">02-6296-7838</a></div></div>
+  </div>
+</div></section>
+
+<!-- FOOTER -->
+<footer><div class="wrap">
+  <div class="disc">
+    <b style="color:#fff">리본셀 × Cafe24 Enterprise 그로스 제안서</b><br>
+    본 제안서의 정량 점수·등급(3축·ESI·TRS·MAGNET 등)은 공개 정보와 진단 프레임워크에 기반한 <b>정성 추정치를 포함</b>합니다. 실제 매출·전환·리텐션 등 재무·운영 지표는 미팅 시 자사몰 데이터로 정밀 검증합니다. 출처: reboncel.com, 무신사 제품 페이지, 국내 더마코스메틱 시장·브랜드평판 보도.
+  </div>
+  <div style="text-align:right">
+    담당 컨설턴트 · 김정은<br>
+    <a href="mailto:jekim@cafe24corp.com">jekim@cafe24corp.com</a> · 02-6296-7838
+  </div>
+</div></footer>
+
+</body>
+</html>
