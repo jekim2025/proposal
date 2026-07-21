@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오가내제례원 · 브랜드 성장 제안서</title>
+<style>
+  :root{
+    --accent:#8C2B27;        /* 대추빛 주칠 레드 — 오가내 시그니처 */
+    --accent-dark:#6E1F1C;   /* 진한 강조 */
+    --accent-mid:#B04A3E;    /* 보조 강조 */
+    --gold:#C9A46A;          /* 유기(놋)·한지 웜 골드 포인트 */
+    --gold-dark:#A9823F;
+    --accent-pale:#F7ECEA;   /* 연한 배경 단색 */
+    --accent-xpale:#FCF6F4;  /* 매우 연한 배경 단색 */
+    --gold-pale:#F5EEDE;
+    --ink:#241E1B;
+    --ink-soft:#5C524D;
+    --line:#EBE2DC;
+    --paper:#FFFFFF;
+    --paper-warm:#FDFBF8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","맑은 고딕",system-ui,sans-serif;
+    color:var(--ink);background:var(--paper-warm);line-height:1.7;
+    -webkit-font-smoothing:antialiased;font-size:16px;
+  }
+  .wrap{max-width:960px;margin:0 auto;background:var(--paper);}
+  .band{padding:64px 56px;border-bottom:1px solid var(--line);}
+  .band.tint{background:var(--accent-xpale);}
+  .eyebrow{display:inline-block;font-size:12.5px;letter-spacing:.18em;font-weight:700;
+    color:var(--accent);text-transform:uppercase;margin-bottom:16px;}
+  h1{font-size:40px;line-height:1.25;font-weight:800;letter-spacing:-.01em;}
+  h2{font-size:27px;line-height:1.32;font-weight:800;letter-spacing:-.01em;margin-bottom:8px;}
+  h3{font-size:18px;font-weight:700;margin-bottom:6px;}
+  p{color:var(--ink-soft);}
+  .lead{font-size:18.5px;color:var(--ink);}
+  .accent{color:var(--accent);font-weight:700;}
+  .bar{width:52px;height:4px;background:var(--accent);border-radius:2px;margin:22px 0 26px;}
+  .muted{color:var(--ink-soft);font-size:14.5px;}
+
+  /* HERO */
+  .hero{padding:76px 56px 66px;background:var(--paper);position:relative;}
+  .hero .kicker{font-size:13px;letter-spacing:.16em;font-weight:700;color:var(--gold-dark);margin-bottom:20px;}
+  .hero h1{margin-bottom:22px;}
+  .hero h1 .hl{color:var(--accent);}
+  .hero .sub{font-size:18px;color:var(--ink-soft);max-width:720px;}
+  .hero-meta{margin-top:34px;display:flex;gap:34px;flex-wrap:wrap;}
+  .hero-meta .m .n{font-size:26px;font-weight:800;color:var(--accent);}
+  .hero-meta .m .l{font-size:13px;color:var(--ink-soft);}
+  .btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:15.5px;
+    padding:15px 30px;border-radius:8px;text-decoration:none;margin-top:34px;
+    transition:background .15s;}
+  .btn:hover{background:var(--accent-dark);}
+  .btn.ghost{background:transparent;color:var(--accent);border:1.6px solid var(--accent);margin-left:12px;}
+
+  /* topbar */
+  .topbar{display:flex;align-items:center;justify-content:space-between;
+    padding:18px 56px;border-bottom:1px solid var(--line);background:var(--paper);}
+  .topbar .brand{font-weight:800;font-size:17px;letter-spacing:-.01em;}
+  .topbar .brand .dot{color:var(--accent);}
+  .topbar .cta-mini{font-size:14px;font-weight:700;color:var(--accent);text-decoration:none;
+    border:1.5px solid var(--accent);padding:8px 16px;border-radius:7px;}
+
+  /* grids */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:26px 24px;}
+  .card.pale{background:var(--accent-pale);border-color:#F0DED9;}
+  .card .ci{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--gold-dark);margin-bottom:10px;text-transform:uppercase;}
+
+  /* score rows */
+  .axis{margin:14px 0;}
+  .axis .top{display:flex;justify-content:space-between;font-size:14.5px;margin-bottom:7px;}
+  .axis .top b{font-weight:700;color:var(--ink);}
+  .axis .top .v{font-weight:800;color:var(--accent);}
+  .track{height:9px;background:var(--accent-pale);border-radius:5px;overflow:hidden;}
+  .fill{height:100%;background:var(--accent);border-radius:5px;}
+  .fill.gold{background:var(--gold);}
+
+  /* pill / tag */
+  .tag{display:inline-block;font-size:12.5px;font-weight:700;color:var(--accent);
+    background:var(--accent-pale);border:1px solid #F0DED9;border-radius:20px;padding:5px 13px;margin:4px 6px 4px 0;}
+  .tag.gold{color:var(--gold-dark);background:var(--gold-pale);border-color:#EAD9B4;}
+
+  /* competitor table */
+  table{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:8px;}
+  th,td{text-align:left;padding:14px 14px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:var(--accent-pale);font-size:13px;color:var(--accent-dark);font-weight:700;}
+  td .name{font-weight:700;color:var(--ink);}
+  td ul{margin:6px 0 0 16px;color:var(--ink-soft);}
+  td ul li{margin:3px 0;}
+
+  /* map (1:1) */
+  .map-row{display:grid;grid-template-columns:1fr 44px 1fr;align-items:center;gap:14px;
+    padding:16px 0;border-bottom:1px dashed var(--line);}
+  .map-row:last-child{border-bottom:none;}
+  .map-row .prob{font-weight:700;color:var(--ink);}
+  .map-row .arrow{text-align:center;color:var(--accent);font-size:22px;font-weight:800;}
+  .map-row .sol{color:var(--ink-soft);}
+  .map-row .sol b{color:var(--accent);}
+
+  /* lever callout */
+  .lever{background:var(--accent);color:#fff;border-radius:16px;padding:44px 40px;text-align:center;}
+  .lever .k{font-size:13px;letter-spacing:.16em;font-weight:700;color:var(--gold-pale);margin-bottom:16px;text-transform:uppercase;}
+  .lever h2{color:#fff;font-size:30px;margin-bottom:14px;}
+  .lever p{color:#F3E4E1;max-width:680px;margin:0 auto;font-size:16.5px;}
+
+  /* roadmap */
+  .phase{display:grid;grid-template-columns:150px 1fr;gap:22px;padding:22px 0;border-bottom:1px solid var(--line);}
+  .phase:last-child{border-bottom:none;}
+  .phase .when{font-weight:800;color:var(--accent);font-size:15.5px;}
+  .phase .when span{display:block;font-size:12.5px;color:var(--ink-soft);font-weight:600;margin-top:3px;}
+  .phase .what h3{margin-bottom:4px;}
+
+  /* quickwin */
+  .qw{display:flex;gap:16px;align-items:flex-start;padding:15px 0;border-bottom:1px solid var(--line);}
+  .qw:last-child{border-bottom:none;}
+  .qw .num{flex:0 0 34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;
+    font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px;}
+  .qw .txt b{color:var(--ink);}
+
+  /* KPI */
+  .kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .kpi .k{border:1px solid var(--line);border-radius:12px;padding:20px 16px;text-align:center;background:var(--accent-xpale);}
+  .kpi .k .n{font-size:15px;font-weight:800;color:var(--accent);}
+  .kpi .k .l{font-size:12.5px;color:var(--ink-soft);margin-top:6px;}
+
+  /* CTA */
+  .cta{background:var(--accent-pale);border-radius:16px;padding:48px 40px;text-align:center;}
+  .cta h2{color:var(--accent-dark);}
+  .contact-box{margin:26px auto 0;max-width:440px;background:var(--paper);border:1px solid #F0DED9;
+    border-radius:12px;padding:24px 26px;text-align:left;}
+  .contact-box .who{font-weight:800;font-size:17px;color:var(--ink);margin-bottom:12px;}
+  .contact-box .row{display:flex;justify-content:space-between;font-size:14.5px;padding:7px 0;border-top:1px solid var(--line);}
+  .contact-box .row:first-of-type{border-top:none;}
+  .contact-box .row .lab{color:var(--ink-soft);}
+  .contact-box .row .val{font-weight:700;color:var(--ink);}
+  .contact-box .row .val a{color:var(--accent);text-decoration:none;}
+
+  footer{padding:34px 56px 46px;background:var(--paper-warm);}
+  footer p{font-size:12.5px;color:#9A8F88;line-height:1.7;}
+
+  @media (max-width:720px){
+    .band,.hero,.topbar,footer{padding-left:24px;padding-right:24px;}
+    .grid2,.grid3,.kpi{grid-template-columns:1fr;}
+    .phase{grid-template-columns:1fr;gap:8px;}
+    .map-row{grid-template-columns:1fr;gap:6px;}
+    .map-row .arrow{display:none;}
+    h1{font-size:31px;}
+  }
+
+  /* PRINT / PDF pagination */
+  @media print{
+    body{background:#fff;font-size:13px;}
+    .wrap{max-width:none;}
+    .band,.hero{padding:34px 40px;}
+    .topbar{position:static;}
+    .band,.hero,.cta,.lever,.card,.kpi .k,.phase,.qw,.map-row,tr,.contact-box,table{
+      break-inside:avoid;page-break-inside:avoid;}
+    h1,h2,h3{break-after:avoid;}
+    p{orphans:3;widows:3;}
+    a[href^="mailto"]{color:var(--accent);}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="brand">오가내제례원<span class="dot">.</span> <span style="font-weight:600;color:var(--ink-soft);font-size:13px;">브랜드 성장 제안</span></div>
+    <a class="cta-mini" href="mailto:jekim@cafe24corp.com?subject=%5B%EC%98%A4%EA%B0%80%EB%82%B4%EC%A0%9C%EB%A1%80%EC%9B%90%5D%20%EC%B9%B4%ED%8E%98%EA%B0%9924%20%EC%97%94%ED%84%B0%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88%20%EC%83%81%EB%8B%B4%20%EB%AC%B8%EC%9D%98&body=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94%2C%20%EC%98%A4%EA%B0%80%EB%82%B4%EC%A0%9C%EB%A1%80%EC%9B%90%20%EB%8B%B4%EB%8B%B9%EC%9E%85%EB%8B%88%EB%8B%A4.%20%EC%B9%B4%ED%8E%98%EA%B0%9924%20%EC%97%94%ED%84%B0%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88%20%EC%83%81%EB%8B%B4%EC%9D%84%20%EC%9A%94%EC%B2%AD%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.">상담 요청</a>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="kicker">SINCE 1994 · 30년 제례 정통성을 디지털 자산으로</div>
+    <h1>30년 쌓은 신뢰,<br>지금 <span class="hl">온라인에서 새어나가고</span> 있습니다.</h1>
+    <p class="sub">오가내제례원은 이미 카페24 위에서 30년의 제례 노하우를 팔고 있습니다. 문제는 상품이 아니라, 그 정통성을 <b style="color:var(--ink)">고객이 온라인에서 확인하고 스스로 결제하게 만드는 장치</b>가 아직 갖춰지지 않았다는 점입니다. 매년 돌아오는 제삿날의 수요는 준비된 자사몰로 가고, 준비되지 않으면 검색 상단의 경쟁사로 흘러갑니다.</p>
+
+    <div class="hero-meta">
+      <div class="m"><div class="n">30년</div><div class="l">Since 1994 · 제례 전문 업력</div></div>
+      <div class="m"><div class="n">전 영역</div><div class="l">제사·차례·고사·시제·장례 상차림</div></div>
+      <div class="m"><div class="n">클래식형</div><div class="l">신뢰 강 · 디지털/트렌드 대응이 과제</div></div>
+    </div>
+
+    <a class="btn" href="mailto:jekim@cafe24corp.com?subject=%5B%EC%98%A4%EA%B0%80%EB%82%B4%EC%A0%9C%EB%A1%80%EC%9B%90%5D%20%EC%B9%B4%ED%8E%98%EA%B0%9924%20%EC%97%94%ED%84%B0%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88%20%EC%83%81%EB%8B%B4%20%EB%AC%B8%EC%9D%98&body=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94%2C%20%EC%98%A4%EA%B0%80%EB%82%B4%EC%A0%9C%EB%A1%80%EC%9B%90%20%EB%8C%80%ED%91%9C%EC%9E%85%EB%8B%88%EB%8B%A4.%20%EC%A0%9C%EC%95%88%20%EB%82%B4%EC%9A%A9%EC%97%90%20%EB%8C%80%ED%95%B4%20%EC%83%81%EB%8B%B4%EC%9D%84%20%EC%9A%94%EC%B2%AD%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.">미팅 요청하기</a>
+    <a class="btn ghost" href="#lever">핵심 진단 보기</a>
+  </div>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="band tint">
+    <div class="eyebrow">Executive Summary</div>
+    <h2>대표님께 드리는 한 문장</h2>
+    <div class="bar"></div>
+    <p class="lead">지금의 자사몰은 <b class="accent">30년 정통성을 담기엔 그릇이 낡았습니다.</b> 새로 시작하자는 제안이 아니라, <b style="color:var(--ink)">이미 보유한 카페24 인프라 위에 신뢰 전환 장치를 얹어</b> 오프라인의 명성을 온라인 매출로 온전히 회수하자는 제안입니다.</p>
+    <div class="grid3" style="margin-top:30px;">
+      <div class="card">
+        <div class="ci">진단</div>
+        <h3>자산은 최상, 전달은 미흡</h3>
+        <p class="muted">30년 업력·전 영역 상차림·무첨가 조리라는 상품 자산은 경쟁 우위. 그러나 리뷰·투명 가격·반응형·리텐션 장치의 부재로 그 가치가 온라인에서 증명되지 못함.</p>
+      </div>
+      <div class="card">
+        <div class="ci">기회</div>
+        <h3>수요는 대행으로 이동 중</h3>
+        <p class="muted">제사 간소화·1인가구 확산으로 '직접 준비 → 전문업체 주문'이 증가. 정통성을 지키면서 '간편·신뢰'로 재포장하는 브랜드가 수혜받는 구간.</p>
+      </div>
+      <div class="card">
+        <div class="ci">처방</div>
+        <h3>D2C 디지털 신뢰 자산화</h3>
+        <p class="muted">11개 분석이 하나의 레버로 수렴 — 오프라인 신뢰를 온라인에서 증명·축적·재구매로 잇는 장치를 카페24 기능과 1:1로 채운다.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3-AXIS DIAGNOSIS -->
+  <div class="band">
+    <div class="eyebrow">Brand Diagnosis · 3축 진단</div>
+    <h2>어디는 강하고, 어디가 새고 있나</h2>
+    <div class="bar"></div>
+    <div class="grid2" style="gap:34px;">
+      <div>
+        <div class="axis">
+          <div class="top"><b>기본축 — 신뢰의 토대</b><span class="v">62 / 100</span></div>
+          <div class="track"><div class="fill" style="width:62%"></div></div>
+          <p class="muted" style="margin-top:7px;">30년 업력·지각 품질은 강함(강). 온라인 프레즌스·물리적 가용성(검색·리뷰 노출)이 약해 총점을 끌어내림.</p>
+        </div>
+        <div class="axis">
+          <div class="top"><b>개성축 — 각인 메시지</b><span class="v">57 / 100</span></div>
+          <div class="track"><div class="fill" style="width:57%"></div></div>
+          <p class="muted" style="margin-top:7px;">지역별·장례 제례까지 아우르는 폭은 독특성 자산. 다만 'Why'가 한 문장으로 각인되지 못하고 라인업이 분산됨.</p>
+        </div>
+        <div class="axis">
+          <div class="top"><b>트렌드축 — 성장 가속기</b><span class="v">46 / 100</span></div>
+          <div class="track"><div class="fill gold" style="width:46%"></div></div>
+          <p class="muted" style="margin-top:7px;">간편화·1인 상차림 수요에 초간편·나홀로 제사상으로 부분 대응하나, 디지털 접점·SNS·검색 대응은 관망 단계.</p>
+        </div>
+      </div>
+      <div>
+        <div class="card pale" style="height:100%;">
+          <div class="ci">유형 분류</div>
+          <h3 style="font-size:22px;color:var(--accent);">클래식형</h3>
+          <p style="margin:8px 0 16px;">기본(신뢰)은 강하나 트렌드·디지털 대응이 약한 전형. <b style="color:var(--ink)">신뢰 자산을 디지털로 옮기는 순간 성장 곡선이 열리는 구간</b>입니다.</p>
+          <div style="border-top:1px solid #F0DED9;padding-top:14px;">
+            <div class="axis" style="margin:10px 0;">
+              <div class="top"><b class="muted" style="color:var(--ink-soft)">실행가능성 지수(ESI, 추정)</b><span class="v">64 · B</span></div>
+              <div class="track"><div class="fill" style="width:64%"></div></div>
+            </div>
+            <div class="axis" style="margin:10px 0;">
+              <div class="top"><b class="muted" style="color:var(--ink-soft)">온라인 프레즌스(추정)</b><span class="v">34 / 100</span></div>
+              <div class="track"><div class="fill gold" style="width:34%"></div></div>
+            </div>
+            <div class="axis" style="margin:10px 0;">
+              <div class="top"><b class="muted" style="color:var(--ink-soft)">트렌드 레디니스(TRS, 추정)</b><span class="v">46 · 관망→팔로워</span></div>
+              <div class="track"><div class="fill gold" style="width:46%"></div></div>
+            </div>
+          </div>
+          <p class="muted" style="margin-top:14px;font-size:12.5px;">※ 점수는 공개정보·프레임워크 기반 정성 추정치이며, 실제 데이터는 미팅 시 정밀 검증합니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPETITOR -->
+  <div class="band tint">
+    <div class="eyebrow">Competitive Landscape · 경쟁 지형</div>
+    <h2>같은 제례 시장, 서로 다른 무기</h2>
+    <div class="bar"></div>
+    <p class="lead" style="margin-bottom:6px;">경쟁사는 저마다 뚜렷한 강점을 가진 실재 브랜드입니다. 오가내의 승부처는 이들이 아직 완성하지 못한 <b class="accent">'폭넓은 제례 커버리지 × 온라인 신뢰 증명'</b>의 결합에 있습니다.</p>
+    <table>
+      <thead><tr><th style="width:20%">브랜드</th><th style="width:40%">강점 (인정할 점)</th><th style="width:40%">아직 남은 여백</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="name">예드림</span><div class="muted">안동종가 손맛 스토리</div></td>
+          <td><ul><li>'안동종가집 며느리 손맛'의 명확한 원산지 서사</li><li>정갈한 포장·장기 재구매 평판</li><li>제사~차례~단품~홈파티까지 유연한 라인</li></ul></td>
+          <td><ul><li>사이트 구형·반응형 미흡(PC 중심)</li><li>프리미엄 지향으로 진입 가격대 부담</li></ul></td>
+        </tr>
+        <tr>
+          <td><span class="name">바른제사</span><div class="muted">당일조리·투명가격</div></td>
+          <td><ul><li>당일 조리·당일 배송(수도권 퀵 등)</li><li>원산지 상세 표기·명확한 가격 표기</li><li>회원 적립 등 온라인 전환 장치</li></ul></td>
+          <td><ul><li>3일 전 사전주문 필요(긴급 대응 제약)</li><li>브랜드 서사가 약함</li></ul></td>
+        </tr>
+        <tr>
+          <td><span class="name">홍동백서</span><div class="muted">제례 종합 서비스</div></td>
+          <td><ul><li>음식+제사도우미+제기정보 원스톱 이미지</li><li>제례 규범을 브랜드화해 카테고리 연상 강함</li></ul></td>
+          <td><ul><li>온라인 검색·평판 노출 낮음</li><li>가격·후기 등 정량 정보 공개가 적음</li></ul></td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="margin-top:22px;">
+      <span class="tag">오가내 우위 · 전 영역 커버리지(지역별·장례 제례)</span>
+      <span class="tag">오가내 우위 · 30년 무첨가 조리 신뢰</span>
+      <span class="tag gold">공통 여백 · 온라인 신뢰 증명(리뷰·투명가격)</span>
+    </div>
+  </div>
+
+  <!-- DESIGN STATUS · RENEWAL -->
+  <div class="band">
+    <div class="eyebrow">Design & CX · 디자인 현황과 리뉴얼 기회</div>
+    <h2>낡은 그릇이 정통성을 가리고 있습니다</h2>
+    <div class="bar"></div>
+    <p class="lead">아래는 현재 자사몰에서 <b style="color:var(--ink)">실제로 관찰된 사실</b>입니다. 비난이 아니라, 가장 확실한 업셀 지점입니다 — 조금만 손보면 30년 신뢰가 화면에서 바로 느껴집니다.</p>
+    <div class="grid2" style="margin-top:26px;">
+      <div class="card">
+        <div class="ci">현재 관찰된 상태</div>
+        <ul style="margin:0 0 0 18px;color:var(--ink-soft);font-size:14.5px;line-height:1.9;">
+          <li>PC와 모바일이 <b style="color:var(--ink)">분리된 도메인</b>(m.oganae.kr)으로 운영 — 반응형 미적용</li>
+          <li>구형 스킨 · 디자인 토큰/웹폰트 부재, 텍스트가 이미지 배너에 갇힌 구간</li>
+          <li>리뷰·포토리뷰·신뢰 배지 <b style="color:var(--ink)">UI가 없음</b></li>
+          <li>주 CTA가 온라인 결제 완결이 아닌 <b style="color:var(--ink)">전화 상담</b> 유도, 일부 품목 가격이 '상담문의'</li>
+        </ul>
+      </div>
+      <div class="card pale">
+        <div class="ci">리뉴얼 시 얻는 것</div>
+        <ul style="margin:0 0 0 18px;color:var(--ink-soft);font-size:14.5px;line-height:1.9;">
+          <li>하나의 반응형 자사몰 — 모바일 유입 이탈 방어, 경험 일관성 확보</li>
+          <li>브랜드 컬러·타이포가 잡힌 디자인 시스템으로 <b style="color:var(--accent)">첫인상에서 신뢰 전달</b></li>
+          <li>포토리뷰가 쌓이며 <b style="color:var(--accent)">첫 구매자의 신뢰 장벽 해소</b></li>
+          <li>온라인 견적·결제 완결로 전화 없이도 주문 완료 → 전환율 회복</li>
+        </ul>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:16px;">CX 관점에서 강점(30년 업력·전 영역 상차림·당일 조리 배송)은 분명하나, 온라인 신뢰 형성 장치의 부재가 그 강점을 화면에서 지우고 있습니다.</p>
+  </div>
+
+  <!-- SINGLE LEVER -->
+  <div class="band tint" id="lever">
+    <div class="lever">
+      <div class="k">11개 프레임워크가 가리키는 단 하나의 방향</div>
+      <h2>D2C 디지털 신뢰 자산화</h2>
+      <p>브랜드 진단·디자인·트렌드·전략 어느 축에서 분석해도 결론은 하나로 모입니다. <b style="color:#fff">오프라인에서 30년간 증명된 신뢰를, 온라인에서 고객이 눈으로 확인하고 스스로 결제·재구매하게 만드는 것.</b> 상품을 바꾸는 일이 아니라, 이미 가진 신뢰를 새지 않게 담는 일입니다.</p>
+    </div>
+  </div>
+
+  <!-- CAFE24 1:1 MAP -->
+  <div class="band">
+    <div class="eyebrow">Solution Mapping · 약점 1:1 매핑</div>
+    <h2>진단된 약점을, 카페24 기능으로 하나씩</h2>
+    <div class="bar"></div>
+    <div class="map-row">
+      <div class="prob">리뷰·후기 UI 부재로<br>온라인 신뢰 형성이 약함</div>
+      <div class="arrow">→</div>
+      <div class="sol"><b>리뷰·포토리뷰 체계</b>로 실제 상차림 후기를 축적해 첫 구매자의 신뢰 장벽을 해소</div>
+    </div>
+    <div class="map-row">
+      <div class="prob">PC/모바일 분리형 구형 구조<br>(반응형 미적용)</div>
+      <div class="arrow">→</div>
+      <div class="sol"><b>반응형 통합 디자인</b>으로 하나의 자사몰에서 모바일 이탈 방어 · 브랜드 경험 일관화</div>
+    </div>
+    <div class="map-row">
+      <div class="prob">'상담문의' 가격 · 전화 의존으로<br>온라인 결제 완결성 약함</div>
+      <div class="arrow">→</div>
+      <div class="sol"><b>옵션·견적·온라인 결제</b> 완결 구조로 전화 없이 주문이 끝나게 해 전환율 회복</div>
+    </div>
+    <div class="map-row">
+      <div class="prob">재구매를 잇는<br>리텐션 장치 공백</div>
+      <div class="arrow">→</div>
+      <div class="sol"><b>제사·명절 리마인드 CRM 자동화</b>로 다음 제삿날 전에 먼저 닿아 재주문을 설계</div>
+    </div>
+    <div class="map-row">
+      <div class="prob">검색·SNS 등<br>온라인 프레즌스 부족</div>
+      <div class="arrow">→</div>
+      <div class="sol"><b>검색 최적화·마케팅 연동</b>과 지역별 제례 가이드 콘텐츠로 유입 채널을 확장</div>
+    </div>
+    <div class="map-row">
+      <div class="prob">지역별·장례 제례 등<br>넓은 라인업의 분산</div>
+      <div class="arrow">→</div>
+      <div class="sol"><b>상품 구조화·큐레이션</b>으로 폭넓은 커버리지를 강점으로 전환(상황별 추천 동선)</div>
+    </div>
+  </div>
+
+  <!-- ROADMAP -->
+  <div class="band tint">
+    <div class="eyebrow">Execution Roadmap · 실행 로드맵</div>
+    <h2>보유 인프라 위, 단계적으로 안전하게</h2>
+    <div class="bar"></div>
+    <div class="phase">
+      <div class="when">1단계<span>기반 구축 · 1–2개월</span></div>
+      <div class="what"><h3>반응형 통합 · 신뢰 UI 이식</h3><p class="muted">PC/모바일 통합 반응형 전환, 리뷰·포토리뷰 도입, '상담문의' 가격의 온라인화 착수.</p></div>
+    </div>
+    <div class="phase">
+      <div class="when">2단계<span>신뢰 자산화 · 2–3개월</span></div>
+      <div class="what"><h3>정통성의 콘텐츠화</h3><p class="muted">원산지·무첨가 조리 과정, 지역별 제례법 가이드 콘텐츠로 30년 노하우를 검색·신뢰 자산으로 축적.</p></div>
+    </div>
+    <div class="phase">
+      <div class="when">3단계<span>접점 통합 · 3–4개월</span></div>
+      <div class="what"><h3>주문 완결 · CRM 가동</h3><p class="muted">옵션·견적·온라인 결제 완결, 제사·명절 리마인드 CRM 자동화, 검색·마케팅 채널 연동.</p></div>
+    </div>
+    <div class="phase">
+      <div class="when">4단계<span>경험 확장 · 4–6개월</span></div>
+      <div class="what"><h3>재구매·구독형 설계</h3><p class="muted">명절 사전예약·구독형 상차림, 구매 데이터 기반 상황별 큐레이션으로 성장 엔진화.</p></div>
+    </div>
+  </div>
+
+  <!-- QUICK WIN -->
+  <div class="band">
+    <div class="eyebrow">Quick Win · 먼저 손대면 좋은 것 TOP 5</div>
+    <h2>영향력은 크고, 착수는 쉬운 것부터</h2>
+    <div class="bar"></div>
+    <div class="qw"><div class="num">1</div><div class="txt"><b>포토리뷰·리뷰 UI 도입</b> — 신뢰 장벽을 가장 빠르게 낮추는 한 수. 첫 구매 전환에 직결.</div></div>
+    <div class="qw"><div class="num">2</div><div class="txt"><b>PC/모바일 반응형 통합</b> — 분리 도메인에서 새던 모바일 유입을 하나의 몰에서 회수.</div></div>
+    <div class="qw"><div class="num">3</div><div class="txt"><b>'상담문의' 가격의 온라인화</b> — 옵션·견적·결제 완결로 전화 없이 주문 완료.</div></div>
+    <div class="qw"><div class="num">4</div><div class="txt"><b>제사·명절 리마인드 CRM</b> — 다음 제삿날 전에 먼저 닿는 재주문 자동화.</div></div>
+    <div class="qw"><div class="num">5</div><div class="txt"><b>지역별 제례법 콘텐츠 SEO</b> — 오가내만의 커버리지를 검색 유입 자산으로 전환.</div></div>
+  </div>
+
+  <!-- KPI -->
+  <div class="band tint">
+    <div class="eyebrow">KPI · 무엇으로 성과를 확인하나</div>
+    <h2>3축을 잇는 성장 지표</h2>
+    <div class="bar"></div>
+    <div class="kpi">
+      <div class="k"><div class="n">리뷰 수·포토리뷰율</div><div class="l">신뢰 자산 축적</div></div>
+      <div class="k"><div class="n">모바일 전환율</div><div class="l">반응형 통합 효과</div></div>
+      <div class="k"><div class="n">온라인 결제 비중</div><div class="l">전화 의존 탈피</div></div>
+      <div class="k"><div class="n">재구매·리마인드 반응률</div><div class="l">CRM 리텐션</div></div>
+    </div>
+    <p class="muted" style="margin-top:16px;">기준선(현재값)은 미팅 시 실데이터로 함께 확정하고, 단계별 목표를 세팅합니다.</p>
+  </div>
+
+
+  <footer>
+    <p>본 제안서의 점수·지표(3축 점수, ESI, TRS, 온라인 프레즌스 등)와 시장 서술 일부는 공개정보와 브랜딩 진단 프레임워크에 기반한 <b>정성 추정치를 포함</b>하며, 정확한 수치는 <b>미팅 시 실데이터로 정밀 검증</b>합니다. 경쟁사 정보는 공개 관찰 범위에서 객관적으로 기술했습니다. · 오가내제례원 브랜드 성장 제안서 · 카페24 엔터프라이즈</p>
+  </footer>
+
+</div>
+</body>
+</html>
