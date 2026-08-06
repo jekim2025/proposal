@@ -1,0 +1,502 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>마녀공장 × 카페24 엔터프라이즈 — 브랜드 성장 전략 제안서</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<style>
+:root{
+  --ink:#231515;
+  --sub:#6b5a5c;
+  --bg:#ffffff;
+  --bg-tint:#fdf6f7;
+  --line:#efe0e2;
+  --accent:#B40218;
+  --accent-deep:#7a0112;
+  --accent-mid:#c8384f;
+  --accent-pale:#f3d3d8;
+  --accent-xpale:#fbeced;
+  --good:#2f7a4f;
+  --warn:#a6690f;
+  --cafe24:#0067ff;
+  --radius:14px;
+  --shadow:0 8px 28px rgba(122,1,18,.07);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+section{padding:74px 0;border-bottom:1px solid var(--line)}
+section.tint{background:var(--bg-tint)}
+h2.sec-title{font-size:clamp(23px,3.2vw,32px);font-weight:800;letter-spacing:-.5px;margin-bottom:10px}
+.sec-tag{display:inline-block;font-size:12px;letter-spacing:2.5px;color:var(--accent);font-weight:700;text-transform:uppercase;margin-bottom:14px}
+.sec-lead{color:var(--sub);font-size:15.5px;max-width:760px;margin-bottom:36px}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1080px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brandmark{font-weight:800;letter-spacing:1px;font-size:15px;color:var(--ink)}
+.brandmark small{display:block;font-size:10px;letter-spacing:2.5px;color:var(--sub);font-weight:500}
+.nav-links{display:flex;gap:20px;font-size:13px;flex-wrap:wrap}
+.nav-links a{color:var(--ink);text-decoration:none;opacity:.72;transition:.2s}
+.nav-links a:hover{opacity:1;color:var(--accent)}
+.nav-cta{background:var(--accent);color:#fff;padding:9px 18px;border-radius:999px;font-size:13px;text-decoration:none;font-weight:700;white-space:nowrap;border:none;cursor:pointer}
+.nav-cta:hover{background:var(--accent-deep)}
+@media(max-width:840px){.nav-links{display:none}}
+
+/* HERO */
+.hero{background:var(--accent-xpale);border-bottom:none;padding:88px 0 76px}
+.hero .kicker{font-size:13px;letter-spacing:3px;color:var(--accent-deep);font-weight:700;margin-bottom:18px}
+.hero h1{font-size:clamp(28px,4.6vw,46px);font-weight:800;line-height:1.28;letter-spacing:-1px;margin-bottom:20px;color:var(--ink)}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{font-size:17px;color:var(--sub);max-width:680px;margin-bottom:32px}
+.hero-meta{display:flex;gap:30px;flex-wrap:wrap;margin-bottom:36px;font-size:13px;color:var(--sub)}
+.hero-meta b{display:block;color:var(--ink);font-size:19px;font-weight:800}
+.btn{display:inline-block;text-decoration:none;font-weight:700;border-radius:999px;padding:14px 26px;transition:.2s;cursor:pointer;border:none;font-size:14.5px}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-deep);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--accent-pale);margin-left:10px}
+.btn-ghost:hover{background:#fff}
+
+/* CARDS / GRID */
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g5{grid-template-columns:repeat(5,1fr)}
+@media(max-width:880px){.g3,.g4,.g5{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.g2,.g3,.g4,.g5{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+.card h3{font-size:16.5px;font-weight:700;margin-bottom:9px}
+.card p{font-size:13.6px;color:var(--sub)}
+.stat{font-size:34px;font-weight:800;color:var(--accent-deep);line-height:1}
+.stat-label{font-size:12.5px;color:var(--sub);margin-top:6px}
+
+/* SCORE BAR */
+.score-row{margin-bottom:15px}
+.score-head{display:flex;justify-content:space-between;font-size:13.6px;margin-bottom:6px}
+.score-head b{font-weight:700}
+.bar{height:9px;background:var(--accent-xpale);border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:999px}
+
+/* BADGE */
+.badge{display:inline-block;font-size:11.5px;font-weight:700;padding:4px 11px;border-radius:999px;background:var(--bg-tint);border:1px solid var(--line);color:var(--accent-deep)}
+.badge.good{background:#eaf4ee;color:var(--good);border-color:#cfe5d8}
+.badge.warn{background:#faf1e2;color:var(--warn);border-color:#eeddbd}
+.badge.cafe24{background:#e8f0ff;color:var(--cafe24);border-color:#cfe0ff}
+.badge.grade{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* TABLE */
+table{width:100%;border-collapse:collapse;font-size:13.6px;background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+th,td{padding:13px 15px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--accent-xpale);font-weight:700;font-size:12.6px;color:var(--accent-deep)}
+tr:last-child td{border-bottom:none}
+td b{color:var(--accent-deep)}
+
+/* TIMELINE */
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:880px){.timeline{grid-template-columns:1fr}}
+.tl-step{position:relative;padding:22px;background:#fff;border:1px solid var(--line);border-radius:var(--radius)}
+.tl-step .ph{font-size:11.5px;letter-spacing:2px;color:var(--accent);font-weight:700}
+.tl-step h4{font-size:15.5px;margin:6px 0 8px}
+.tl-step ul{list-style:none;font-size:12.8px;color:var(--sub)}
+.tl-step li{padding-left:14px;position:relative;margin-bottom:5px}
+.tl-step li:before{content:"·";position:absolute;left:2px;color:var(--accent);font-weight:900}
+
+/* PILL LIST */
+.pills{display:flex;flex-wrap:wrap;gap:10px}
+.pill{background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:13px;font-weight:500}
+
+.callout{background:var(--accent-xpale);border:1px solid var(--accent-pale);color:var(--ink);border-radius:var(--radius);padding:30px;margin-top:10px}
+.callout h3{color:var(--accent-deep);font-size:19px;margin-bottom:10px}
+.callout p{color:var(--sub);font-size:14.6px}
+
+.eq{background:#fff;border:1px dashed var(--accent);border-radius:var(--radius);padding:22px;text-align:center;font-size:clamp(14px,2.2vw,19px);font-weight:700;color:var(--accent-deep);line-height:1.9}
+.eq span{color:var(--ink)}
+
+.note{font-size:12px;color:var(--sub);margin-top:14px;font-style:italic}
+
+/* CTA SECTION */
+.cta-final{background:var(--bg-tint);text-align:center;border-bottom:none}
+.cta-final h2{color:var(--ink);font-size:clamp(24px,3.6vw,36px);font-weight:800;margin-bottom:14px}
+.cta-final p{color:var(--sub);max-width:600px;margin:0 auto 8px;font-size:16px}
+.cta-final-actions{display:flex;flex-direction:column;align-items:center;gap:22px;margin-top:30px}
+.contact-box{display:inline-flex;flex-direction:column;gap:6px;font-size:14px;color:var(--sub);background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 30px;box-shadow:var(--shadow)}
+.contact-box b{color:var(--accent-deep);font-size:15px}
+
+footer{background:#fff;color:var(--sub);text-align:center;padding:30px 24px;font-size:12px;border-top:1px solid var(--line)}
+
+/* print */
+.print-fab{position:fixed;right:22px;bottom:22px;z-index:60;background:var(--accent);color:#fff;border:none;border-radius:999px;padding:13px 20px;font-size:13.5px;font-weight:700;box-shadow:var(--shadow);cursor:pointer}
+.print-fab:hover{background:var(--accent-deep)}
+@media print{
+  .nav,.print-fab,.btn-ghost{display:none!important}
+  body{background:#fff}
+  section,.card,table,.timeline .tl-step,.grid > *{break-inside:avoid;page-break-inside:avoid}
+  h2,h3,h4{break-after:avoid}
+  p{orphans:3;widows:3}
+  .hero,.cta-final,.callout{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .card,table{box-shadow:none}
+}
+.matrix{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:560px){.matrix{grid-template-columns:1fr}}
+.quad{border:1px solid var(--line);border-radius:var(--radius);padding:18px;background:#fff}
+.quad h4{font-size:14px;margin-bottom:8px;color:var(--accent-deep)}
+.quad ul{list-style:none;font-size:13px;color:var(--sub)}
+.quad li{margin-bottom:4px;padding-left:12px;position:relative}
+.quad li:before{content:"›";position:absolute;left:0;color:var(--accent)}
+
+.axis3{display:flex;gap:24px;flex-wrap:wrap;align-items:flex-end;margin-bottom:20px}
+.axis3 .a-col{flex:1;min-width:160px;text-align:center}
+.axis3 .a-track{height:160px;background:var(--accent-xpale);border-radius:10px;position:relative;overflow:hidden;border:1px solid var(--line)}
+.axis3 .a-fill{position:absolute;bottom:0;left:0;width:100%;background:var(--accent)}
+.axis3 .a-label{margin-top:8px;font-size:13px;font-weight:700}
+.axis3 .a-score{font-size:12px;color:var(--sub)}
+
+.cube-list{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:880px){.cube-list{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.cube-list{grid-template-columns:1fr}}
+.cube-item{border:1px solid var(--line);border-radius:var(--radius);padding:18px;background:#fff}
+.cube-item .lv{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;margin-bottom:8px}
+.lv-high{background:#eaf4ee;color:var(--good)}
+.lv-mid{background:#faf1e2;color:var(--warn)}
+.lv-low{background:var(--accent-xpale);color:var(--accent-deep)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="nav">
+  <div class="nav-inner">
+    <div class="brandmark">마녀공장 × 카페24<small>ENTERPRISE PROPOSAL</small></div>
+    <div class="nav-links">
+      <a href="#summary">Executive Summary</a>
+      <a href="#market">시장·경쟁 진단</a>
+      <a href="#design">디자인 현황</a>
+      <a href="#axis">브랜드 진단</a>
+      <a href="#strategy">전략 방향</a>
+      <a href="#roadmap">실행 로드맵</a>
+    </div>
+    <a class="nav-cta" href="mailto:jekim@cafe24corp.com?subject=%5B%EB%A7%88%EB%85%80%EA%B3%B5%EC%9E%A5%5D%20%EC%B9%B4%ED%8E%9424%20%EC%97%94%ED%84%B0%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88%20%EC%A0%84%ED%99%98%20%EB%AC%B8%EC%9D%98&body=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94%2C%20%EB%A7%88%EB%85%80%EA%B3%B5%EC%9E%A5%20%EB%8B%B4%EB%8B%B9%EC%9E%90%EB%8B%98.%0A%EC%B9%B4%ED%8E%9424%20%EC%97%94%ED%84%B0%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88%20%EC%A0%84%ED%99%98%20%EA%B4%80%EB%A0%A8%20%EB%AF%B8%ED%8C%85%EC%9D%84%20%EC%9A%94%EC%B2%AD%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.">미팅 요청</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="kicker">BRAND GROWTH DIAGNOSIS · COSMETICS</div>
+    <h1>마녀공장의 리뷰 신뢰 자산, <em>더 편하고 안정적인</em> 운영 기반 위에서<br>다음 단계로 확장할 수 있습니다</h1>
+    <p>갈락토미 에센스 4.6점(리뷰 2,151건), 퓨어 클렌징 오일 4.3점(리뷰 5,497건) — 마녀공장은 이미 검증된 제품력과 리뷰 신뢰 자산을 보유하고 있습니다. 카페24 엔터프라이즈는 이 자산을 안정적으로 운영하고, 반응형 통합·글로벌 확장까지 끊김 없이 이어가는 실행 기반을 제공합니다.</p>
+    <div class="hero-meta">
+      <div><b>86.8억$ → 93.8억$</b>더마코스메틱 시장(’25→’26, CAGR 7.72%)</div>
+      <div><b>4.6 / 5.0</b>갈락토미 에센스 화해 평점(리뷰 2,151건)</div>
+      <div><b>PC·모바일 분리형</b>현재 도메인 구조 — 반응형 통합 기회</div>
+    </div>
+    <a class="btn btn-primary" href="mailto:jekim@cafe24corp.com?subject=%5B%EB%A7%88%EB%85%80%EA%B3%B5%EC%9E%A5%5D%20%EC%B9%B4%ED%8E%9424%20%EC%97%94%ED%84%B0%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88%20%EC%A0%84%ED%99%98%20%EB%AC%B8%EC%9D%98&body=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94%2C%20%EB%A7%88%EB%85%80%EA%B3%B5%EC%9E%A5%20%EB%8B%B4%EB%8B%B9%EC%9E%90%EB%8B%98.%0A%EC%B9%B4%ED%8E%9424%20%EC%97%94%ED%84%B0%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88%20%EC%A0%84%ED%99%98%20%EA%B4%80%EB%A0%A8%20%EB%AF%B8%ED%8C%85%EC%9D%84%20%EC%9A%94%EC%B2%AD%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.">진단 상세 상담 요청</a>
+    <a class="btn btn-ghost" href="#summary">Executive Summary 보기</a>
+  </div>
+</section>
+
+<!-- EXECUTIVE SUMMARY -->
+<section id="summary">
+  <div class="wrap">
+    <span class="sec-tag">Executive Summary</span>
+    <h2 class="sec-title">진단 결과, 병목은 '제품력'이 아니라 '디지털 자산·운영 안정성'입니다</h2>
+    <p class="sec-lead">11개 프레임워크 진단을 종합한 결과, 마녀공장은 리뷰 신뢰·평점 기반의 제품력은 상위권 경쟁사와 견줄 수준이지만, PC·모바일 도메인이 분리된 현재 구조와 상대적으로 얇은 디지털 자산(SNS 팔로워 등)이 성장 속도를 제한하는 단일 병목으로 나타났습니다. 카페24 엔터프라이즈 전환은 이 병목을 해소하며 '더 편하고 안정적인' 운영 기반을 제공합니다.</p>
+    <div class="grid g4">
+      <div class="card"><div class="stat">61점</div><div class="stat-label">ESI 종합 스코어(정성 추정)</div><p>COS·BPI·CCI·TDI·DAI 가중 합산 — 리뷰 신뢰 대비 디지털 자산 항목이 상대적 약점</p></div>
+      <div class="card"><div class="stat">D등급</div><div class="stat-label">콘셉트 7C 평가(43/70)</div><p>제품 신뢰도는 높으나 브랜드 차별화(Contrast)·커뮤니티 반응(Community) 축이 약함</p></div>
+      <div class="card"><div class="stat">2건</div><div class="stat-label">확인된 제품 리뷰 근거</div><p>에센스 4.6점(2,151건), 클렌징오일 4.3점(5,497건) — 카테고리 내 상위권 신뢰 지표</p></div>
+      <div class="card"><div class="stat">1곳</div><div class="stat-label">도메인 분리 구조</div><p>PC·모바일 도메인 분리 확인 — 반응형 통합 시 전환 최적화 효과 기대</p></div>
+    </div>
+    <div class="callout" style="margin-top:28px">
+      <h3>운영 관점 핵심 메시지</h3>
+      <p>지금의 리뷰 자산과 카테고리 신뢰를 그대로 유지하면서, 배포·재고·CS 프로세스를 하나의 반응형 통합 환경에서 운영하면 장애 대응 지점이 줄고 신제품 배포 속도가 빨라집니다. 새 시스템을 처음부터 구축하는 것이 아니라, 이미 검증된 리뷰·평점 자산 위에 안정적인 운영 레일을 올리는 접근입니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET & COMPETITION -->
+<section id="market" class="tint">
+  <div class="wrap">
+    <span class="sec-tag">Brand Diagnosis</span>
+    <h2 class="sec-title">시장·경쟁 진단</h2>
+    <p class="sec-lead">3단계 시장 세분화와 경쟁사 실재성 검증을 통해 마녀공장의 현재 위치를 확인합니다.</p>
+
+    <div class="grid g3" style="margin-bottom:32px">
+      <div class="card">
+        <span class="badge">Core Market</span>
+        <h3 style="margin-top:10px">더마코스메틱/기능성 스킨케어</h3>
+        <p>한국 시장 2025년 약 86.8억$ → 2026년 약 93.8억$ 전망(CAGR 약 7.72%, 2026~2034). 주요 유통: 올리브영, 자사몰, 쿠팡, 아마존·세포라(해외).</p>
+      </div>
+      <div class="card">
+        <span class="badge">Sub Market</span>
+        <h3 style="margin-top:10px">성분 스토리텔링형 인디 브랜드</h3>
+        <p>아누아·스킨1004·넘버즈인·토리든·조선미녀 등이 성분 근거 스토리텔링과 올리브영 랭킹 최적화, 해외 유통 동시 공략으로 급성장. 가격대 1.5만~3만원.</p>
+      </div>
+      <div class="card">
+        <span class="badge">Niche Market</span>
+        <h3 style="margin-top:10px">비건·저자극 자연주의</h3>
+        <p>마녀공장·아워비건이 포진한 영역. 클렌징 카테고리에서 강점을 보유하나 시장 규모 공식 통계는 확인불가.</p>
+      </div>
+    </div>
+
+    <h3 style="font-size:17px;margin-bottom:14px">경쟁사 3분류 · 실재성 판정</h3>
+    <table style="margin-bottom:14px">
+      <tr><th>구분</th><th>브랜드</th><th>실재성 판정</th><th>핵심 근거</th></tr>
+      <tr><td><b>시장 리더</b></td><td>스킨1004</td><td><span class="badge good">긍정</span></td><td>2024년 매출 2,800억원(전년比 321%↑), 화해 2024 뷰티어워드 클렌징오일 1위, 아마존 클렌징 부문 1위</td></tr>
+      <tr><td><b>시장 리더</b></td><td>아누아(더파운더즈)</td><td><span class="badge good">긍정</span></td><td>2025년 매출 7,177억원(전년比 약 68%↑), 어성초 토너 올리브영 어워즈 5년 연속 수상, 화해 평점 4.3(리뷰 8,503건)</td></tr>
+      <tr><td><b>직접 경쟁</b></td><td>넘버즈인(비나우)</td><td><span class="badge good">긍정</span></td><td>2024년 매출 2,700억원, 16개국 진출, 2026~2027년 IPO 예정</td></tr>
+      <tr><td><b>직접 경쟁</b></td><td>토리든</td><td><span class="badge good">긍정</span></td><td>2025년 매출 2,743억원(최근 3개년 CAGR 135%), 2025 올리브영 어워즈 3개 부문 1위, 세포라 전 지점 입점</td></tr>
+    </table>
+    <p class="note">경쟁사 강점은 모두 공개된 매출·수상·리뷰 데이터에 근거하며, 약점 항목은 확인 가능한 공개 자료가 없어 '확인불가'로 표기했습니다(과장·비방 없이 균형 서술).</p>
+
+    <h3 style="font-size:17px;margin:32px 0 14px">경쟁사 제품 평점 비교</h3>
+    <table style="margin-bottom:10px">
+      <tr><th>브랜드</th><th>제품</th><th>가격</th><th>리뷰 수</th><th>평점</th></tr>
+      <tr><td><b>마녀공장</b></td><td>갈락토미 나이아신 투명광채 에센스 50ml</td><td>29,000원(할인 19,900원)</td><td>2,151</td><td><b>4.6</b></td></tr>
+      <tr><td><b>마녀공장</b></td><td>퓨어 클렌징 오일 200ml</td><td>확인불가</td><td>5,497</td><td>4.3</td></tr>
+      <tr><td>아누아</td><td>어성초 77 수딩 토너 500ml</td><td>확인불가</td><td>8,503</td><td>4.3</td></tr>
+      <tr><td>토리든</td><td>다이브인 저분자 히알루론산 세럼 50ml</td><td>약 22,000원</td><td>확인불가</td><td>확인불가</td></tr>
+    </table>
+    <p class="note">마녀공장 에센스(4.6점)는 비교 가능한 리뷰 데이터 중 가장 높은 평점으로, 리뷰량 대비 만족도 측면에서 상위권 경쟁사와 대등하거나 앞서는 결과입니다.</p>
+
+    <div class="grid g2" style="margin-top:28px">
+      <div class="card">
+        <h3>ESI 5대 지표 (정성 추정)</h3>
+        <div class="score-row"><div class="score-head"><span>COS 고객체감스코어 (25%)</span><b>68</b></div><div class="bar"><i style="width:68%"></i></div></div>
+        <div class="score-row"><div class="score-head"><span>BPI 브랜드파워지수 (25%)</span><b>60</b></div><div class="bar"><i style="width:60%"></i></div></div>
+        <div class="score-row"><div class="score-head"><span>CCI 카테고리적합지수 (20%)</span><b>65</b></div><div class="bar"><i style="width:65%"></i></div></div>
+        <div class="score-row"><div class="score-head"><span>TDI 트렌드적합지수 (15%)</span><b>62</b></div><div class="bar"><i style="width:62%"></i></div></div>
+        <div class="score-row"><div class="score-head"><span>DAI 디지털자산지수 (15%)</span><b>45</b></div><div class="bar"><i style="width:45%"></i></div></div>
+        <p class="note">가중합산 종합 ESI 약 61점. 리뷰 신뢰(COS)는 높으나 디지털 자산(DAI)이 상대적 약점 — 정성 추정치이며 정밀 수치는 미팅 시 검증 가능합니다.</p>
+      </div>
+      <div class="card">
+        <h3>온라인 프레즌스 6채널</h3>
+        <p style="margin-bottom:10px">확인 가능한 채널만 채점, 나머지는 확인불가로 명시합니다.</p>
+        <div class="pills">
+          <span class="pill">Instagram: 팔로워 약 9.2만 (채점 가능)</span>
+          <span class="pill">네이버: 확인불가</span>
+          <span class="pill">구글: 확인불가</span>
+          <span class="pill">YouTube: 네고왕 출연 이력만 확인, 구독자 확인불가</span>
+          <span class="pill">Facebook: 팔로워 확인불가</span>
+          <span class="pill">X: 확인불가</span>
+        </div>
+        <p class="note">6채널 중 1채널만 정량 확인 가능 — 디지털 자산 데이터 정비 자체가 향후 진단 정밀도를 높이는 과제입니다.</p>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:28px">
+      <h3>단일 병목 결론</h3>
+      <p>제품력·리뷰 신뢰는 카테고리 상위권과 대등하지만, 디지털 자산 노출과 운영 인프라(도메인 분리)가 성장 속도를 제한하는 단일 병목입니다. 이는 마케팅 콘텐츠 문제가 아니라 <b>플랫폼·운영 기반의 문제</b>이며, 카페24 엔터프라이즈 전환으로 직접 해소할 수 있는 영역입니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DESIGN DIAGNOSIS -->
+<section id="design">
+  <div class="wrap">
+    <span class="sec-tag">Design Diagnosis</span>
+    <h2 class="sec-title">디자인 현황 · 리뉴얼 기회</h2>
+    <p class="sec-lead">공식 사이트(manyo.co.kr) 실측 기반 디자인 시스템 진단과 카페24 전환 시 확보되는 개선 기회입니다.</p>
+
+    <div class="grid g2" style="margin-bottom:24px">
+      <div class="card">
+        <h3>디자인 시스템 정성 평가</h3>
+        <p style="margin-bottom:8px"><b>컬러 시스템</b> — 로고·CTA 포인트 컬러가 딥레드/버건디(#B40218) 계열로 실측 확인됩니다. 브랜드 자산으로서의 활용 범위를 넓히면 인지 일관성이 강화될 여지가 있습니다.</p>
+        <p style="margin-bottom:8px"><b>타이포그래피</b> — 산세리프 계열 사용 추정, 상세 폰트 체계는 추가 확인이 필요합니다.</p>
+        <p style="margin-bottom:8px"><b>내비게이션</b> — 이미지 버튼이 아닌 텍스트 기반 드롭다운(상품/피부고민별/성분별)으로 접근성 측면에서 양호합니다.</p>
+        <p style="margin-bottom:8px"><b>배너</b> — 슬라이더형 회전 배너로 신제품·슬로건(“Everyday magic for your skin”)을 노출 중입니다.</p>
+        <p><b>리뷰 UI</b> — goodsreview 게시판이 존재해 구매후기 열람 동선이 확보되어 있습니다.</p>
+      </div>
+      <div class="card">
+        <h3>CX 체험 정성 등급</h3>
+        <p style="margin-bottom:10px">디시인사이드 화장품갤러리에서 클렌징오일 리뉴얼 이후 제형 관련 일부 부정 후기가 확인되며, 올리브영·화해 채널에서는 랭킹·리뷰 중심 구매결정 문화가 확산되어 있습니다.</p>
+        <div class="pills">
+          <span class="pill">가시성: 양호</span>
+          <span class="pill">일관성: 보통</span>
+          <span class="pill">신뢰성: 양호(리뷰 UI 존재)</span>
+          <span class="pill">회복탄력성: 개선 필요(리뉴얼 CX 이슈)</span>
+        </div>
+        <p class="note">CX 7E 프레임워크 기준 종합 등급은 '보통' — 리뷰 자산은 강점이나 제품 변경 시 소통·피드백 루프 보강이 필요합니다.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <h3>반응형 통합 기회 — PC·모바일 도메인 분리 구조 확인</h3>
+      <p>현재 마녀공장 사이트는 PC와 모바일이 별도 도메인으로 운영되는 구조가 확인됩니다. 이는 많은 성장기 브랜드에서 공통적으로 나타나는 과도기적 구조이며, 카페24 엔터프라이즈로 전환하면 <b>반응형 통합 환경</b>에서 하나의 관리 포인트로 상품·배너·리뷰를 운영할 수 있습니다. 그 결과 운영팀 입장에서는 이중 업데이트 작업이 사라지고, 고객 입장에서는 기기 간 전환 시에도 끊김 없는 탐색·구매 경험이 이어져 전환율 손실 지점을 줄일 수 있습니다. 즉, 지금보다 <b>더 편하고 안정적인 운영</b>이 가능해지는 구조적 변화입니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3AXIS / BRAND POWER -->
+<section id="axis" class="tint">
+  <div class="wrap">
+    <span class="sec-tag">3-Axis Diagnosis · Brand Identity</span>
+    <h2 class="sec-title">브랜드 3축 진단 · 브랜드 파워 매트릭스</h2>
+    <p class="sec-lead">기본(신뢰의 토대)·개성(각인 메시지)·트렌드(성장 가속기) 3축으로 마녀공장을 진단했습니다.</p>
+
+    <div class="axis3">
+      <div class="a-col">
+        <div class="a-track"><div class="a-fill" style="height:75%"></div></div>
+        <div class="a-label">기본 (신뢰의 토대)</div>
+        <div class="a-score">75/100 — 리뷰·평점 검증 우수</div>
+      </div>
+      <div class="a-col">
+        <div class="a-track"><div class="a-fill" style="height:55%"></div></div>
+        <div class="a-label">개성 (각인 메시지)</div>
+        <div class="a-score">55/100 — 슬로건은 있으나 시각 자산 활용 여지</div>
+      </div>
+      <div class="a-col">
+        <div class="a-track"><div class="a-fill" style="height:70%"></div></div>
+        <div class="a-label">트렌드 (성장 가속기)</div>
+        <div class="a-score">70/100 — 성분신뢰·스키니멀리즘 부합</div>
+      </div>
+    </div>
+    <div class="badge grade" style="font-size:13px;padding:6px 14px">3축 유형 분류: 기능형 (기본 강 · 트렌드 양호 · 개성 보강 필요)</div>
+
+    <div class="grid g2" style="margin-top:28px">
+      <div class="card">
+        <h3>브랜드 아이덴티티 7지표 스코어카드 (추정치)</h3>
+        <div class="score-row"><div class="score-head"><span>인지도</span><b>62</b></div><div class="bar"><i style="width:62%"></i></div></div>
+        <div class="score-row"><div class="score-head"><span>연상 명확성</span><b>58</b></div><div class="bar"><i style="width:58%"></i></div></div>
+        <div class="score-row"><div class="score-head"><span>충성도(재구매 신호)</span><b>60</b></div><div class="bar"><i style="width:60%"></i></div></div>
+        <div class="score-row"><div class="score-head"><span>지각 품질(평점 기반)</span><b>78</b></div><div class="bar"><i style="width:78%"></i></div></div>
+        <div class="score-row"><div class="score-head"><span>차별성</span><b>50</b></div><div class="bar"><i style="width:50%"></i></div></div>
+        <div class="score-row"><div class="score-head"><span>관련성(트렌드 적합)</span><b>68</b></div><div class="bar"><i style="width:68%"></i></div></div>
+        <div class="score-row"><div class="score-head"><span>확장성(글로벌·카테고리)</span><b>48</b></div><div class="bar"><i style="width:48%"></i></div></div>
+        <p class="note">정성 추정치 포함 · 실제 데이터는 미팅 시 정밀 검증합니다.</p>
+      </div>
+      <div class="card">
+        <h3>브랜드 파워 매트릭스 판정</h3>
+        <p style="margin-bottom:10px"><b>판정: 기본템 (Reliable Staple)</b></p>
+        <p>안정적 판매량과 높은 리뷰 신뢰(평점 4.3~4.6)를 갖춘 '믿고 쓰는 스테디셀러' 포지션입니다. 아누아·토리든처럼 강한 브랜드 자산(컬트급 팬덤·독점적 시각 자산)까지는 아직 이르지 않았으나, 신뢰 기반은 확고해 다음 단계 확장의 출발점으로 유리한 위치입니다.</p>
+      </div>
+    </div>
+
+    <h3 style="font-size:17px;margin:32px 0 14px">콘셉트 7C 평가 (총 70점 중 43점 · D등급)</h3>
+    <div class="grid g4">
+      <div class="card"><div class="stat" style="font-size:24px">7/10</div><div class="stat-label">Clarity 명확성</div></div>
+      <div class="card"><div class="stat" style="font-size:24px">7/10</div><div class="stat-label">Consistency 일관성</div></div>
+      <div class="card"><div class="stat" style="font-size:24px">7/10</div><div class="stat-label">Credibility 신뢰성</div></div>
+      <div class="card"><div class="stat" style="font-size:24px">5/10</div><div class="stat-label">Contrast 차별성</div></div>
+      <div class="card"><div class="stat" style="font-size:24px">6/10</div><div class="stat-label">Culture 문화적합</div></div>
+      <div class="card"><div class="stat" style="font-size:24px">5/10</div><div class="stat-label">Community 커뮤니티</div></div>
+      <div class="card"><div class="stat" style="font-size:24px">6/10</div><div class="stat-label">Courage 실행 담대함</div></div>
+      <div class="card" style="background:var(--accent-xpale);border-color:var(--accent-pale)"><div class="stat" style="font-size:24px">43/70</div><div class="stat-label">종합 · D등급</div></div>
+    </div>
+
+    <h3 style="font-size:17px;margin:32px 0 14px">성공 함수 6면체 (Strategy Cube · 정성 프로파일)</h3>
+    <div class="cube-list">
+      <div class="cube-item"><span class="lv lv-high">강</span><h4>상품력</h4><p style="font-size:13px;color:var(--sub)">리뷰 평점(4.3~4.6)으로 검증된 품질 신뢰</p></div>
+      <div class="cube-item"><span class="lv lv-mid">중</span><h4>채널장악력</h4><p style="font-size:13px;color:var(--sub)">올리브영 중심 국내 채널 안정, 해외 채널 확장 여지</p></div>
+      <div class="cube-item"><span class="lv lv-mid">중</span><h4>브랜드자산</h4><p style="font-size:13px;color:var(--sub)">인지도는 있으나 컬트급 자산까지는 미도달</p></div>
+      <div class="cube-item"><span class="lv lv-low">약</span><h4>글로벌확장력</h4><p style="font-size:13px;color:var(--sub)">경쟁사 대비 해외 매출 비중 공개 데이터 확인불가</p></div>
+      <div class="cube-item"><span class="lv lv-mid">중하</span><h4>디지털민첩성</h4><p style="font-size:13px;color:var(--sub)">SNS 팔로워(약 9.2만)가 상위 경쟁사 대비 상대적으로 얇음</p></div>
+      <div class="cube-item"><span class="lv lv-mid">중</span><h4>성장엔진</h4><p style="font-size:13px;color:var(--sub)">안정적 판매 지속, 경쟁사 대비 성장률 공개 데이터 확인불가</p></div>
+    </div>
+    <p class="note">근접 롤모델 유형: 단일 카테고리(클렌징·저자극) 집중형으로 성장한 토리든과 방향성이 유사하나, 규모와 채널 확장 속도에서 격차가 있는 '실속형 스테디셀러' 유형으로 정성 분류합니다.</p>
+
+    <h3 style="font-size:17px;margin:32px 0 14px">트렌드 레디니스(TRS) · 상위 트렌드 JTBD</h3>
+    <div class="grid g3">
+      <div class="card"><h3>성분신뢰 구매결정</h3><p>리뷰 많은 상품 신뢰(60%), 랭킹 상위 제품 신뢰(75%) — 마녀공장의 리뷰 자산과 직접 부합</p></div>
+      <div class="card"><h3>스키니멀리즘</h3><p>클렌징 카테고리 집중 강점이 '꼭 필요한 것만' 트렌드와 자연스럽게 정렬</p></div>
+      <div class="card"><h3>롱제비티 뷰티</h3><p>고기능성 확장 트렌드에 대응할 여지, 개인화 솔루션은 보통 수준 적합</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- STRATEGY -->
+<section id="strategy">
+  <div class="wrap">
+    <span class="sec-tag">Ecommerce Strategy · Pull Marketing</span>
+    <h2 class="sec-title">전략 방향</h2>
+    <p class="sec-lead">성장 단계 판정과 카페24 서비스 매핑을 통해 실행 가능한 전략 방향을 제시합니다.</p>
+
+    <div class="callout" style="margin-bottom:28px">
+      <h3>성장단계 판정: 성장기 (경쟁사 대비 상대적 정체 구간)</h3>
+      <p>토리든·아누아·넘버즈인이 최근 3년간 급격한 매출 성장(CAGR 68~135%)을 기록하는 동안, 마녀공장은 안정적인 리뷰·평점 자산을 유지하고 있으나 동일 수준의 공개 성장률 데이터는 확인되지 않습니다. 이는 위기가 아니라 <b>운영 기반을 정비하면 다시 가속할 수 있는 성장기 브랜드</b>의 전형적 구간으로 판단됩니다.</p>
+    </div>
+
+    <div class="grid g3" style="margin-bottom:28px">
+      <div class="card"><span class="badge">L1 · 안정화</span><h3 style="margin-top:10px">운영 기반 통합</h3><p>PC·모바일 반응형 통합, 배포·재고·CS 프로세스 일원화로 장애 지점 축소</p></div>
+      <div class="card"><span class="badge">L2 · 채널 고도화</span><h3 style="margin-top:10px">리뷰·CRM 자산화</h3><p>리뷰·평점 UI 고도화, 재구매 유도 CRM 자동화로 기존 신뢰 자산 극대화</p></div>
+      <div class="card"><span class="badge">L3 · 확장</span><h3 style="margin-top:10px">글로벌 채널 확장</h3><p>안정화된 운영 기반 위에서 글로벌샵 확장을 통한 해외 판로 다각화</p></div>
+    </div>
+
+    <h3 style="font-size:17px;margin-bottom:14px">카페24 서비스 매핑</h3>
+    <table style="margin-bottom:28px">
+      <tr><th>진단된 약점/기회</th><th>카페24 서비스</th><th>기대 효과</th></tr>
+      <tr><td>PC·모바일 도메인 분리</td><td><span class="badge cafe24">반응형 통합 환경</span></td><td>관리 포인트 일원화, 운영 부담 감소</td></tr>
+      <tr><td>디지털 자산(리뷰 UI) 고도화 필요</td><td><span class="badge cafe24">리뷰·CRM 솔루션</span></td><td>리뷰 신뢰 자산의 전환율 연결 강화</td></tr>
+      <tr><td>글로벌 확장력 약함</td><td><span class="badge cafe24">글로벌샵 확장</span></td><td>해외 판로 다각화 기반 마련</td></tr>
+      <tr><td>운영 안정성·트래픽 대응</td><td><span class="badge cafe24">트래픽 안정성 인프라</span></td><td>프로모션·성수기 트래픽 급증 시 안정적 대응</td></tr>
+      <tr><td>브랜드 시각 자산 정비 필요</td><td><span class="badge cafe24">디자인 서비스</span></td><td>일관된 브랜드 경험, 시그니처 컬러 활용 강화</td></tr>
+    </table>
+
+    <h3 style="font-size:17px;margin-bottom:14px">Pull 마케팅 우선순위 (MAGNET 모델)</h3>
+    <div class="matrix">
+      <div class="quad">
+        <h4>Magnetism · 매력 극대화</h4>
+        <ul><li>리뷰·평점 데이터 시각화 강화 (2,151건·4.6점 등 신뢰 지표 전면 배치)</li><li>성분 근거 스토리텔링 콘텐츠 랜딩 페이지화</li></ul>
+      </div>
+      <div class="quad">
+        <h4>Engagement · 관계 지속</h4>
+        <ul><li>CRM 기반 재구매 자동 메일링/리마인드</li><li>구매 후기 작성 유도 프로세스 자동화</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap" class="tint">
+  <div class="wrap">
+    <span class="sec-tag">Execution Matrix</span>
+    <h2 class="sec-title">실행 로드맵 · Quick Win</h2>
+    <p class="sec-lead">3축 × 5접점 실행 매트릭스에서 우선순위가 가장 높은 Quick Win 과제입니다.</p>
+
+    <div class="grid g5" style="margin-bottom:28px">
+      <div class="card"><div class="stat" style="font-size:20px">1</div><h3 style="font-size:14px">반응형 통합</h3><p style="font-size:12.5px">PC·모바일 도메인 일원화</p></div>
+      <div class="card"><div class="stat" style="font-size:20px">2</div><h3 style="font-size:14px">리뷰 UI 고도화</h3><p style="font-size:12.5px">평점·리뷰 자산 전환 연결</p></div>
+      <div class="card"><div class="stat" style="font-size:20px">3</div><h3 style="font-size:14px">CRM 재구매 자동화</h3><p style="font-size:12.5px">재구매·리마인드 자동 메일링</p></div>
+      <div class="card"><div class="stat" style="font-size:20px">4</div><h3 style="font-size:14px">트래픽 인프라 안정화</h3><p style="font-size:12.5px">프로모션 성수기 대응력 확보</p></div>
+      <div class="card"><div class="stat" style="font-size:20px">5</div><h3 style="font-size:14px">글로벌샵 확장 준비</h3><p style="font-size:12.5px">해외 판로 다각화 기반 마련</p></div>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-step"><div class="ph">PHASE 1 · 1개월</div><h4>진단 · 설계</h4><ul><li>현행 도메인 구조 정밀 진단</li><li>반응형 통합 설계</li><li>리뷰 데이터 이관 계획</li></ul></div>
+      <div class="tl-step"><div class="ph">PHASE 2 · 2~3개월</div><h4>운영 기반 구축</h4><ul><li>반응형 통합 환경 구축</li><li>리뷰·평점 UI 고도화</li><li>CS 프로세스 일원화</li></ul></div>
+      <div class="tl-step"><div class="ph">PHASE 3 · 4~6개월</div><h4>자산화 · 파일럿</h4><ul><li>CRM 재구매 자동화 적용</li><li>글로벌샵 파일럿 오픈</li><li>트래픽 안정성 점검</li></ul></div>
+      <div class="tl-step"><div class="ph">PHASE 4 · 7~12개월</div><h4>확장 · 최적화</h4><ul><li>글로벌 채널 확대</li><li>브랜드 시각 자산 정비</li><li>성과 기반 지속 최적화</li></ul></div>
+    </div>
+    <p class="note">정성 추정 로드맵 포함 · 실제 일정과 범위는 미팅 시 정밀 협의합니다.</p>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-final">
+  <div class="wrap">
+    <h2>지금보다 더 편하고 안정적인 운영, 카페24에서 시작하세요</h2>
+    <p>이미 검증된 마녀공장의 리뷰 신뢰 자산 위에, 반응형 통합 운영 기반과 글로벌 확장 레일을 더합니다.</p>
+    <div class="cta-final-actions">
+      <a class="btn btn-primary" href="mailto:jekim@cafe24corp.com?subject=%5B%EB%A7%88%EB%85%80%EA%B3%B5%EC%9E%A5%5D%20%EC%B9%B4%ED%8E%9424%20%EC%97%94%ED%84%B0%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88%20%EC%A0%84%ED%99%98%20%EB%AC%B8%EC%9D%98&body=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94%2C%20%EB%A7%88%EB%85%80%EA%B3%B5%EC%9E%A5%20%EB%8B%B4%EB%8B%B9%EC%9E%90%EB%8B%98.%0A%EC%B9%B4%ED%8E%9424%20%EC%97%94%ED%84%B0%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88%20%EC%A0%84%ED%99%98%20%EA%B4%80%EB%A0%A8%20%EB%AF%B8%ED%8C%85%EC%9D%84%20%EC%9A%94%EC%B2%AD%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.">미팅 요청하기</a>
+      <div class="contact-box">
+        <span><b>담당 컨설턴트</b> 김정은</span>
+        <span>이메일: jekim@cafe24corp.com</span>
+        <span>연락처: 02-6296-7838</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  본 제안서는 공개 자료·진단 프레임워크 기반의 정성 추정치를 포함합니다. 실제 수치는 미팅 시 정밀 검증됩니다. © Cafe24 Enterprise
+</footer>
+
+<button class="print-fab" onclick="window.print()">PDF로 저장</button>
+
+</body>
+</html>
