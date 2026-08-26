@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>마이노멀 × 카페24 엔터프라이즈 제안서</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&family=Noto+Serif+KR:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --accent:       #4C8C3C;
+    --accent-dark:  #356B29;
+    --accent-mid:   #75B25C;
+    --accent-pale:  #E9F5E3;
+    --accent-xpale: #F5FAF2;
+    --ink:          #24291f;
+    --ink-soft:     #565f4f;
+    --line:         #dfe6d8;
+    --card:         #ffffff;
+    --neg:          #B4483C;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Noto Sans KR', sans-serif;
+    color:var(--ink);
+    background:#ffffff;
+    line-height:1.65;
+  }
+  h1,h2,h3,h4{font-family:'Noto Serif KR', serif; margin:0; color:var(--ink);}
+  p{margin:0;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+  a{color:inherit; text-decoration:none;}
+
+  /* NAV */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,255,255,0.94);
+    border-bottom:1px solid var(--line);
+    backdrop-filter:blur(6px);
+  }
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; padding:14px 28px;}
+  .brandmark{font-family:'Noto Serif KR',serif; font-weight:900; font-size:19px; letter-spacing:-0.02em; color:var(--ink);}
+  .brandmark span{color:var(--accent);}
+  .navlinks{display:flex; gap:26px; font-size:13.5px; color:var(--ink-soft); font-weight:500;}
+  .btn{
+    display:inline-block;
+    background:var(--accent);
+    color:#fff !important;
+    padding:10px 22px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:13.5px;
+    white-space:nowrap;
+  }
+  .btn.small{padding:8px 18px; font-size:13px;}
+  .btn.outline{background:transparent; color:var(--accent) !important; border:1.5px solid var(--accent);}
+
+  /* HERO */
+  .hero{
+    padding:96px 0 76px;
+    background:var(--accent-xpale);
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    display:inline-block;
+    font-size:12.5px; font-weight:700; letter-spacing:0.14em;
+    color:var(--accent-dark);
+    text-transform:uppercase;
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:42px; font-weight:900; line-height:1.32; letter-spacing:-0.01em;
+    max-width:760px;
+  }
+  .hero h1 em{font-style:normal; color:var(--accent-dark); border-bottom:4px solid var(--accent-mid);}
+  .hero .lead{
+    margin-top:22px; font-size:16.5px; color:var(--ink-soft); max-width:640px; line-height:1.8;
+  }
+  .hero .ctarow{margin-top:34px; display:flex; gap:14px; flex-wrap:wrap;}
+
+  /* SECTION GENERIC */
+  section{padding:72px 0;}
+  section.alt{background:var(--accent-xpale);}
+  .sec-head{margin-bottom:40px; max-width:700px;}
+  .sec-num{font-size:12.5px; font-weight:700; color:var(--accent-dark); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:10px; display:block;}
+  .sec-head h2{font-size:28px; font-weight:800; line-height:1.4;}
+  .sec-head p{margin-top:14px; color:var(--ink-soft); font-size:15px; line-height:1.75;}
+
+  .grid{display:grid; gap:18px;}
+  .grid.g2{grid-template-columns:repeat(2,1fr);}
+  .grid.g3{grid-template-columns:repeat(3,1fr);}
+  .grid.g5{grid-template-columns:repeat(5,1fr);}
+  @media (max-width:820px){.grid.g2,.grid.g3,.grid.g5{grid-template-columns:1fr;}}
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:26px;
+  }
+  .card h3{font-size:16px; font-weight:700; margin-bottom:10px;}
+  .card p{font-size:13.8px; color:var(--ink-soft); line-height:1.7;}
+
+  .stat{
+    background:var(--card); border:1px solid var(--line); border-radius:16px;
+    padding:22px 20px; text-align:center;
+  }
+  .stat .num{font-family:'Noto Serif KR',serif; font-size:34px; font-weight:800; color:var(--accent-dark);}
+  .stat .num small{font-size:15px; color:var(--ink-soft); font-weight:500;}
+  .stat .lbl{margin-top:6px; font-size:12.5px; color:var(--ink-soft); font-weight:500;}
+
+  .bar-row{margin-bottom:14px;}
+  .bar-row .top{display:flex; justify-content:space-between; font-size:13.5px; margin-bottom:6px;}
+  .bar-row .top b{font-weight:700;}
+  .bar-track{width:100%; height:9px; background:var(--accent-pale); border-radius:99px; overflow:hidden;}
+  .bar-fill{height:100%; background:var(--accent); border-radius:99px;}
+  .bar-fill.weak{background:#c9a06a;}
+
+  .tag{
+    display:inline-block; background:var(--accent-pale); color:var(--accent-dark);
+    font-size:12px; font-weight:600; padding:4px 12px; border-radius:99px; margin:2px 4px 2px 0;
+  }
+
+  table.cmp{width:100%; border-collapse:collapse; font-size:13.8px;}
+  table.cmp th, table.cmp td{border-bottom:1px solid var(--line); padding:12px 10px; text-align:left; vertical-align:top;}
+  table.cmp th{color:var(--ink-soft); font-weight:600; font-size:12.5px; text-transform:uppercase; letter-spacing:0.03em;}
+  table.cmp td.brand{font-weight:700;}
+
+  .quote{
+    border-left:4px solid var(--accent); padding:6px 0 6px 22px; font-size:15.5px; color:var(--ink);
+    font-family:'Noto Serif KR',serif; line-height:1.8;
+  }
+
+  .roadmap{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  @media (max-width:820px){.roadmap{grid-template-columns:1fr;}}
+  .rm-card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:20px;}
+  .rm-card .ph{font-size:12px; color:var(--accent-dark); font-weight:700; letter-spacing:0.05em; margin-bottom:8px;}
+  .rm-card h4{font-size:14.5px; font-weight:700; margin-bottom:8px;}
+  .rm-card ul{margin:0; padding-left:18px; font-size:13px; color:var(--ink-soft); line-height:1.7;}
+
+  .footnote{font-size:12px; color:var(--ink-soft); margin-top:22px; line-height:1.7;}
+
+  /* CTA / CONTACT */
+  .cta-final{
+    background:var(--accent-dark); color:#fff; border-radius:24px; padding:56px 48px; text-align:center;
+  }
+  .cta-final h2{color:#fff; font-size:27px; font-weight:800; line-height:1.5;}
+  .cta-final p{color:rgba(255,255,255,0.82); margin-top:14px; font-size:15px;}
+  .cta-final .btn{background:#fff; color:var(--accent-dark) !important; margin-top:26px; padding:14px 34px; font-size:15px;}
+  .contact-box{
+    margin:26px auto 0; max-width:380px;
+    background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.22);
+    border-radius:14px; padding:18px 22px; text-align:left;
+  }
+  .contact-box .row{display:flex; justify-content:space-between; font-size:13.5px; padding:5px 0; color:rgba(255,255,255,0.92);}
+  .contact-box .row span:first-child{color:rgba(255,255,255,0.6);}
+
+  footer{padding:34px 0; text-align:center; font-size:12px; color:var(--ink-soft); border-top:1px solid var(--line);}
+
+  .print-btn{
+    position:fixed; bottom:26px; right:26px; z-index:99;
+    background:var(--accent); color:#fff; border:none; border-radius:999px;
+    padding:12px 22px; font-weight:700; font-size:13.5px; cursor:pointer;
+    box-shadow:0 6px 18px rgba(76,140,60,0.35);
+  }
+
+  @media print{
+    @page{ size:A4 portrait; margin:14mm; }
+    *{ -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+    nav, .print-btn{ display:none !important; }
+    section{ padding:26px 0; break-inside:auto; }
+    .card, .stat, .rm-card, .cta-final, table.cmp, .contact-box{ break-inside:avoid; page-break-inside:avoid; }
+    h1,h2,h3,h4{ break-after:avoid; }
+    p, li{ orphans:3; widows:3; }
+    .hero{ padding:36px 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brandmark">마이노멀 <span>× 카페24</span></div>
+    <div class="navlinks">
+      <span>시장 진단</span><span>경쟁 구도</span><span>실행 로드맵</span>
+    </div>
+    <a class="btn small" href="mailto:jekim@cafe24corp.com?subject=%5B%EB%A7%88%EC%9D%B4%EB%85%B8%EB%A9%80%5D%20%EC%B9%B4%ED%8E%9824%20%EC%97%94%ED%84%B0%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88%20%EC%A0%84%ED%99%98%20%EB%AC%B8%EC%9D%98&body=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94%2C%20%EB%A7%88%EC%9D%B4%EB%85%B8%EB%A9%80%20%EB%8B%B4%EB%8B%B9%EC%9E%90%EC%9E%85%EB%8B%88%EB%8B%A4.%20%EC%B9%B4%ED%8E%9824%20%EC%97%94%ED%84%B0%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88%20%EC%A0%84%ED%99%98%EC%97%90%20%EB%8C%80%ED%95%B4%20%EC%83%81%EB%8B%B4%EC%9D%84%20%EC%9A%94%EC%B2%AD%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.">미팅 요청하기</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Brand Growth Diagnosis · 11-Framework Analysis</span>
+    <h1>마이노멀이 연 저당 시장,<br>이제는 <em>대기업이 뛰어듭니다.</em></h1>
+    <p class="lead">
+      정제 탄수화물을 줄여나가자는 한 사람의 믿음이 8년 만에 매출 360억 원대 브랜드로 자랐습니다.
+      그런데 지금, 같은 시장에 동원홈푸드·대상·CJ제일제당이 각자의 유통망과 마케팅 자본을 동원해
+      뛰어들고 있습니다. 마이노멀이 만든 시장을, 마이노멀이 계속 이끌 수 있을지는
+      다음 인프라 투자 속도에 달려 있습니다.
+    </p>
+    <div class="ctarow">
+      <a class="btn" href="mailto:jekim@cafe24corp.com?subject=%5B%EB%A7%88%EC%9D%B4%EB%85%B8%EB%A9%80%5D%20%EC%B9%B4%ED%8E%9824%20%EC%97%94%ED%84%B0%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88%20%EC%A0%84%ED%99%98%20%EB%AC%B8%EC%9D%98&body=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94%2C%20%EB%A7%88%EC%9D%B4%EB%85%B8%EB%A9%80%20%EB%8B%B4%EB%8B%B9%EC%9E%90%EC%9E%85%EB%8B%88%EB%8B%A4.%20%EC%B9%B4%ED%8E%9824%20%EC%97%94%ED%84%B0%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88%20%EC%A0%84%ED%99%98%EC%97%90%20%EB%8C%80%ED%95%B4%20%EC%83%81%EB%8B%B4%EC%9D%84%20%EC%9A%94%EC%B2%AD%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.">미팅 요청하기</a>
+      <a class="btn outline" href="#summary">진단 결과 먼저 보기</a>
+    </div>
+  </div>
+</section>
+
+<section id="summary">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">Executive Summary</span>
+      <h2>11개 진단이 가리키는 하나의 결론</h2>
+      <p>브랜드·시장·디자인·트렌드·마케팅 11개 프레임워크로 마이노멀을 진단한 결과, 신호는 하나로 모입니다.
+      <b>상품력과 시장 감각은 카테고리 최상위권이지만, 그 성과를 실어 나를 채널·기술 인프라가 상대적으로 얇습니다.</b></p>
+    </div>
+    <div class="grid g5">
+      <div class="stat"><div class="num">79</div><div class="lbl">상품력 점수<br>(6면체 진단)</div></div>
+      <div class="stat"><div class="num">67</div><div class="lbl">ESI 종합점수<br>(우수 구간)</div></div>
+      <div class="stat"><div class="num">73</div><div class="lbl">트렌드 레디니스<br>(TRS)</div></div>
+      <div class="stat"><div class="num" style="color:#B4483C">59</div><div class="lbl">채널 장악력<br>(6면체 진단)</div></div>
+      <div class="stat"><div class="num" style="color:#B4483C">34</div><div class="lbl">글로벌 확장력<br>(6면체 진단)</div></div>
+    </div>
+    <p class="footnote">※ 정성 추정치를 포함하며, 실제 데이터는 미팅 시 정밀 검증합니다. 산출 근거: 전략자산 6면체(success-equation-matcher), ESI 5대 지표, 트렌드 레디니스 스코어(TRS) 프레임워크.</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">Market &amp; Trend</span>
+      <h2>저당 시장은 지금이 골든타임입니다</h2>
+      <p>제로슈거 시장은 최근 6년간 7.8배 성장했고, 혈당 관리 관련 소비는 최근 4년 새 36.9% 늘었습니다(헤럴드경제).
+      저당 트렌드는 음료를 넘어 시리얼·소스·장류까지 식생활 전반으로 확산 중이며, 이 흐름의 중심에는
+      '건강을 관리하면서도 맛을 포기하지 않는다'는 헬시플레저(Healthy Pleasure) 소비가 있습니다.</p>
+    </div>
+    <div class="grid g3">
+      <div class="card">
+        <h3>웰니스·클린 소비 (T1·T2)</h3>
+        <p>수크랄로스·아스파탐·말티톨 없는 원료 배제 리스트를 앞세운 마이노멀의 포지셔닝은
+        클린 소비 트렌드와 정확히 맞아떨어집니다. 두 트렌드 모두 대응 수준 상위권으로 진단됩니다.</p>
+      </div>
+      <div class="card">
+        <h3>트렌드 레디니스 73점</h3>
+        <p>10대 메가트렌드 중 식품/건강식품 카테고리 핵심 트렌드(웰니스·클린·숏폼) 기준 TRS 73점으로
+        '트렌드 팔로워' 상단, '트렌드 리더' 진입 직전 구간입니다. 숏폼·오프라인 체험 채널 실행이 다음 과제입니다.</p>
+      </div>
+      <div class="card">
+        <h3>타겟과 시장의 정합성</h3>
+        <p>마이노멀의 핵심 타겟은 35~44세 — 본인 다이어트와 부모님 건강을 함께 신경 쓰는 연령대로,
+        혈당 관리 시장 성장의 실수요층과 정확히 겹칩니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="competition">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">Competitive Landscape</span>
+      <h2>마이노멀이 개척한 시장에, 대기업이 들어옵니다</h2>
+      <p>세 경쟁 브랜드 모두 상품력 자체는 준수합니다. 다만 마이노멀과 근본적으로 다른 무기를 갖고 시장에 진입하고 있습니다 — 바로 모기업의 유통망과 마케팅 예산입니다.</p>
+    </div>
+    <table class="cmp">
+      <tr><th>브랜드</th><th>배경</th><th>강점</th><th>마이노멀 관점 시사점</th></tr>
+      <tr>
+        <td class="brand">비비드키친</td>
+        <td>동원홈푸드 · 2020년 출시</td>
+        <td>국내 저칼로리·저당 소스 시장 점유율 1위. 알룰로스 기반 소스·드레싱·비건 제품 라인업.</td>
+        <td>동원 계열 유통망을 통한 빠른 매대 확보력.</td>
+      </tr>
+      <tr>
+        <td class="brand">청정원 로우태그</td>
+        <td>대상 · LOWTAG</td>
+        <td>알룰로스 활용 저당 소스, 출시 100일 만에 누적 매출 100억 원 달성.</td>
+        <td>대상의 전국 유통망을 그대로 투입한 확산 속도.</td>
+      </tr>
+      <tr>
+        <td class="brand">CJ 슈가라이트</td>
+        <td>CJ제일제당</td>
+        <td>자체 '저당 모듈레이션' 기술 기반 장류·소스 9종. 아이돌(레드벨벳 슬기) 모델 기용.</td>
+        <td>대규모 마케팅 예산을 동반한 인지도 확산 속도.</td>
+      </tr>
+    </table>
+    <p class="footnote" style="margin-top:18px;">
+      마이노멀은 소스류에 머물지 않고 아이스크림·잼·초코볼·젤리 등 폭넓은 카테고리와
+      다이어트 앱 '인아웃'(140만 사용자)까지 결합한 유일한 브랜드입니다. 상품 경쟁력의 격차보다,
+      대기업 계열사들이 가진 <b>채널 스피드의 격차</b>가 더 시급한 변수입니다.
+    </p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">Brand Diagnosis Scorecard</span>
+      <h2>강한 상품력, 얇은 인프라</h2>
+      <p>전략자산 6면체(84개 D2C 기업 벤치마크 프레임워크)로 진단한 결과, 여섯 축의 편차가 뚜렷합니다.</p>
+    </div>
+    <div class="grid g2">
+      <div class="card">
+        <div class="bar-row"><div class="top"><span>상품력</span><b>79</b></div><div class="bar-track"><div class="bar-fill" style="width:79%"></div></div></div>
+        <div class="bar-row"><div class="top"><span>브랜드 자산</span><b>64</b></div><div class="bar-track"><div class="bar-fill" style="width:64%"></div></div></div>
+        <div class="bar-row"><div class="top"><span>성장 엔진</span><b>66</b></div><div class="bar-track"><div class="bar-fill" style="width:66%"></div></div></div>
+        <div class="bar-row"><div class="top"><span>채널 장악력</span><b>59</b></div><div class="bar-track"><div class="bar-fill weak" style="width:59%"></div></div></div>
+        <div class="bar-row"><div class="top"><span>디지털 민첩성</span><b>50</b></div><div class="bar-track"><div class="bar-fill weak" style="width:50%"></div></div></div>
+        <div class="bar-row"><div class="top"><span>글로벌 확장력</span><b>34</b></div><div class="bar-track"><div class="bar-fill weak" style="width:34%"></div></div></div>
+      </div>
+      <div class="card">
+        <h3>3축 진단 (기본·개성·트렌드)</h3>
+        <div class="bar-row"><div class="top"><span>기본 (신뢰의 토대)</span><b>77 / 100</b></div><div class="bar-track"><div class="bar-fill" style="width:77%"></div></div></div>
+        <div class="bar-row"><div class="top"><span>개성 (각인 메시지)</span><b>77 / 100</b></div><div class="bar-track"><div class="bar-fill" style="width:77%"></div></div></div>
+        <div class="bar-row"><div class="top"><span>트렌드 (성장 가속기)</span><b>79 / 100</b></div><div class="bar-track"><div class="bar-fill" style="width:79%"></div></div></div>
+        <p style="margin-top:14px;">세 축 모두 60점 이상으로 '완성형' 구간에 근접했습니다. 다만 이 완성도를 뒷받침할
+        온라인 프레즌스 종합 점수는 <b>54/100</b>로, 채널 간 편차가 큽니다 — 인스타그램은 강하지만
+        유튜브·X 등은 상대적으로 비어 있습니다.</p>
+      </div>
+    </div>
+    <p class="footnote">※ 정성 추정치를 포함하며, 실제 데이터는 미팅 시 정밀 검증합니다.</p>
+  </div>
+</section>
+
+<section id="rolemodel">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">Role Model Matching</span>
+      <h2>같은 격차를 먼저 넘은 브랜드들</h2>
+      <p>84개 D2C 성공기업 데이터베이스에서 마이노멀과 전략자산 구조가 가장 가까운 브랜드를 유클리드 거리로 매칭했습니다.</p>
+    </div>
+    <div class="grid g3">
+      <div class="card">
+        <h3>이그니스(EGNIS)</h3>
+        <p>트렌드 기획 × D2C 테스트 × 옴니채널 확장(편의점·올리브영) × 기술 M&amp;A로 매출 1,300억 원까지
+        성장한 식품 D2C 사례. 마이노멀과 전략자산 구조가 가장 가깝게 매칭됩니다.</p>
+      </div>
+      <div class="card">
+        <h3>닥터블릿헬스케어</h3>
+        <p>다이어트 건강기능식품을 D2C 자사몰(170만 DB) 기반으로 옴니채널·글로벌 확장하여
+        4년 만에 매출 1,000억 원을 돌파. 마이노멀의 글로벌 확장력 격차를 메울 때 참고할 만한 궤적입니다.</p>
+      </div>
+      <div class="card">
+        <h3>에잇템 (이그니스)</h3>
+        <p>브랜드 디벨로퍼 구조로 여러 식품 브랜드를 D2C 퍼포먼스와 옴니채널로 동시에 확장한 사례.
+        마이노멀이 보유한 다품목 카테고리 전략과 유사한 성장 방식입니다.</p>
+      </div>
+    </div>
+    <p class="quote" style="margin-top:22px;">
+      마이노멀 = 저당 무첨가 레시피(차별화 무기) × 인아웃 앱 140만 사용자(증폭기) ×
+      논문 기반 연구와 창업자의 회복 서사(신뢰 장치) × 자사몰 + 9개 채널(채널 레버리지) ×
+      저당 카테고리 온리원(카테고리 지위)
+    </p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">Pull Marketing · MAGNET</span>
+      <h2>지금 잘하고 있는 것과, 놓치고 있는 것</h2>
+    </div>
+    <div class="grid g3">
+      <div class="card"><h3>M · Magnetize — 강함</h3><p>"내가 못 먹는 건 만들지 않는다"는 창업자 철학이 명확한 자석 효과를 만듭니다.</p></div>
+      <div class="card"><h3>A · Attract — 보통</h3><p>인스타그램 자발적 후기는 활발하나, 검색·숏폼 콘텐츠 자산화는 아직 초기 단계입니다.</p></div>
+      <div class="card"><h3>G · Gratify — 강함</h3><p>다품목 라인업과 일관된 제품 품질로 구매 후 만족도가 높게 관찰됩니다.</p></div>
+      <div class="card"><h3>N · Nurture — 약함</h3><p>인아웃 앱의 140만 사용자 데이터와 쇼핑몰 CRM이 아직 자동화 연계되지 않은 것으로 보입니다.</p></div>
+      <div class="card"><h3>E · Evangelize — 보통</h3><p>커뮤니티 자발 언급은 확인되나, 추천·앰버서더 구조화는 여지가 있습니다.</p></div>
+      <div class="card"><h3>T · Thrive — 약함</h3><p>채널이 많지만 옴니채널 재고·주문·마케팅 자동화 통합은 다음 과제로 보입니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">Execution Roadmap</span>
+      <h2>채널 격차를 메우는 4단계</h2>
+      <p>진단된 약점(채널 장악력 59 · 디지털 민첩성 50 · 글로벌 확장력 34)에 1:1로 대응하는 실행안입니다.</p>
+    </div>
+    <div class="roadmap">
+      <div class="rm-card">
+        <div class="ph">1~2개월 · 기반 구축</div>
+        <h4>자사몰 전환 &amp; 검색 유입</h4>
+        <ul>
+          <li>카페24 엔터프라이즈 전환으로 반응형·전환 최적화 UI 확보</li>
+          <li>SEO 설정 + 스마트 AI 검색으로 '저당' 카테고리 검색 유입 강화</li>
+        </ul>
+      </div>
+      <div class="rm-card">
+        <div class="ph">2~3개월 · 신뢰 자산화</div>
+        <h4>리뷰 &amp; CRM 자동화</h4>
+        <ul>
+          <li>포토·영상 리뷰 서비스로 자발적 후기 자산을 신뢰 요소로 전환</li>
+          <li>CRM마케팅 자동화로 재구매 유도 시나리오 구축</li>
+        </ul>
+      </div>
+      <div class="rm-card">
+        <div class="ph">3~4개월 · 채널 통합</div>
+        <h4>글로벌 확장 인프라</h4>
+        <ul>
+          <li>글로벌쇼핑몰 서비스로 싱가포르·미국·일본·중국 확장을 통합 관리</li>
+          <li>옴니채널 재고·주문 데이터 일원화</li>
+        </ul>
+      </div>
+      <div class="rm-card">
+        <div class="ph">4~6개월 · 성장 가속</div>
+        <h4>데이터 기반 확장</h4>
+        <ul>
+          <li>인아웃 앱 사용자 데이터와 자사몰 CRM 연계 설계</li>
+          <li>Quick Win 성과 지표 기반 다음 카테고리 확장 우선순위 재정렬</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="cta-final">
+      <h2>지금의 격차는, 아직 마이노멀이 이길 수 있는 격차입니다.</h2>
+      <p>상품력과 트렌드 감각은 이미 준비돼 있습니다. 남은 것은 그 힘을 실어 나를 인프라뿐입니다.<br>
+      김정은 담당자가 마이노멀의 상황에 맞는 전환 방안을 직접 안내해 드립니다.</p>
+      <a class="btn" href="mailto:jekim@cafe24corp.com?subject=%5B%EB%A7%88%EC%9D%B4%EB%85%B8%EB%A9%80%5D%20%EC%B9%B4%ED%8E%9824%20%EC%97%94%ED%84%B0%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88%20%EC%A0%84%ED%99%98%20%EB%AC%B8%EC%9D%98&body=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94%2C%20%EB%A7%88%EC%9D%B4%EB%85%B8%EB%A9%80%20%EB%8B%B4%EB%8B%B9%EC%9E%90%EC%9E%85%EB%8B%88%EB%8B%A4.%20%EC%B9%B4%ED%8E%9824%20%EC%97%94%ED%84%B0%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88%20%EC%A0%84%ED%99%98%EC%97%90%20%EB%8C%80%ED%95%B4%20%EC%83%81%EB%8B%B4%EC%9D%84%20%EC%9A%94%EC%B2%AD%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.">미팅 요청하기</a>
+      <div class="contact-box">
+        <div class="row"><span>담당</span><span>김정은</span></div>
+        <div class="row"><span>이메일</span><span>jekim@cafe24corp.com</span></div>
+        <div class="row"><span>연락처</span><span>02-6296-7838</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    본 제안서의 정량 지표는 공개 정보와 진단 프레임워크를 기반으로 산출된 정성 추정치를 포함합니다.
+    실제 데이터는 미팅 시 정밀 검증합니다. © Cafe24
+  </div>
+</footer>
+
+<button class="print-btn" onclick="window.print()">PDF로 저장</button>
+
+<a href="/download/f25e37d7-c5c2-4552-876d-4acea3fa4471" style="position:fixed;top:16px;right:16px;z-index:9999;background:#2b5cff;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;font-family:sans-serif;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,.2)">⬇ HTML 다운로드</a></body>
+</html>
